@@ -51,29 +51,37 @@
       position: relative;
     }
 
-    /* Card Box matching Screenshot 2 with HD Pasaran Background */
+    /* Card Box with Ultra-Luxurious 3D Sculpted Gold Frame */
     .syair-card {
       background-color: #060502;
-      border: 1.5px solid var(--gold-border);
-      border-radius: 4px;
       position: relative;
-      padding: 24px 20px 20px;
-      box-shadow:
-        0 0 35px rgba(0, 0, 0, 0.95),
-        0 0 20px rgba(196, 158, 31, 0.22),
-        inset 0 0 30px rgba(0, 0, 0, 0.85);
+      padding: 30px 22px 24px;
+      border-radius: 8px;
       overflow: hidden;
+
+      /* Multi-layered 3D Beveled Gold Moulding Frame */
+      border: 3.5px solid #ffe285;
+      box-shadow:
+        0 0 0 2px #4e390c,
+        0 0 0 5px #151004,
+        0 0 0 8px #caa02a,
+        0 0 0 10px #6d4e0e,
+        0 0 0 12px #ffd700,
+        0 0 0 14px #2b1d04,
+        0 25px 70px rgba(0, 0, 0, 0.98),
+        0 0 50px rgba(255, 215, 0, 0.45),
+        inset 0 0 40px rgba(0, 0, 0, 0.95);
     }
 
-    /* HD Dynamic Thematic Pasaran Background */
+    /* HD Dynamic Thematic Pasaran Background (Tampak Lebih Jelas, Berwarna & Hidup) */
     .card-theme-bg {
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: 0.36;
-      filter: saturate(1.25) contrast(1.15) brightness(0.92);
+      opacity: 0.62;
+      filter: saturate(1.4) contrast(1.22) brightness(1.08);
       transition: opacity 0.6s ease;
       pointer-events: none;
       z-index: 0;
@@ -84,56 +92,108 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 30%, rgba(18, 14, 4, 0.6) 0%, rgba(6, 6, 6, 0.85) 60%, rgba(2, 2, 2, 0.96) 100%),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.22) 45%, rgba(0, 0, 0, 0.85) 100%);
+        radial-gradient(circle at 50% 36%, rgba(8, 6, 2, 0.42) 0%, rgba(5, 4, 2, 0.72) 65%, rgba(1, 1, 1, 0.94) 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.12) 35%, rgba(0, 0, 0, 0.75) 100%);
       pointer-events: none;
       z-index: 1;
     }
 
-    /* Inner Gold Border */
+    /* Inner Gold Filigree Bevel Border */
     .syair-card::before {
       content: '';
       position: absolute;
-      top: 7px;
-      left: 7px;
-      right: 7px;
-      bottom: 7px;
-      border: 1px solid var(--gold-border-soft);
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1.5px solid #ffd700;
+      border-radius: 4px;
+      box-shadow:
+        0 0 12px rgba(255, 215, 0, 0.35),
+        inset 0 0 16px rgba(0, 0, 0, 0.9);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Inner Beaded Accent Border */
+    .syair-card::after {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border: 1px dashed rgba(255, 215, 0, 0.35);
       border-radius: 3px;
       pointer-events: none;
       z-index: 2;
     }
 
-    /* Decorative Ornate Corners (SVG) */
+    /* Dynamic 3D Metallic Light Shimmer across Frame */
+    .card-shimmer-sweep {
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 220%;
+      height: 220%;
+      background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.14) 48%, rgba(255, 215, 0, 0.25) 50%, rgba(255, 255, 255, 0.14) 52%, transparent 60%);
+      transform: rotate(35deg);
+      pointer-events: none;
+      z-index: 2;
+      animation: frameLightSweep 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes frameLightSweep {
+
+      0%,
+      20% {
+        transform: translateY(-120%) rotate(35deg);
+        opacity: 0;
+      }
+
+      32%,
+      46% {
+        transform: translateY(120%) rotate(35deg);
+        opacity: 0.9;
+      }
+
+      47%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Decorative Ornate 3D Baroque Royal Corners (SVG) */
     .corner-decor {
       position: absolute;
-      width: 42px;
-      height: 42px;
+      width: 74px;
+      height: 74px;
       pointer-events: none;
       z-index: 3;
-      opacity: 0.88;
+      opacity: 0.95;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
     }
 
     .corner-tl {
-      top: 9px;
-      left: 9px;
+      top: 10px;
+      left: 10px;
     }
 
     .corner-tr {
-      top: 9px;
-      right: 9px;
+      top: 10px;
+      right: 10px;
       transform: scaleX(-1);
     }
 
     .corner-bl {
-      bottom: 9px;
-      left: 9px;
+      bottom: 10px;
+      left: 10px;
       transform: scaleY(-1);
     }
 
     .corner-br {
-      bottom: 9px;
-      right: 9px;
+      bottom: 10px;
+      right: 10px;
       transform: scale(-1, -1);
     }
 
@@ -167,12 +227,14 @@
     /* Tanggal Autopilot */
     .syair-date {
       font-family: 'Cinzel', serif;
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      color: #ffd700;
-      text-shadow: 0 0 12px rgba(255, 215, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.8);
-      margin: 4px 0 10px;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 3.5px;
+      background: linear-gradient(180deg, #ffffff 0%, #fff2b2 25%, #ffd700 55%, #caa025 80%, #7d5e11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
+      margin: 6px 0 10px;
       text-transform: uppercase;
     }
 
@@ -181,42 +243,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       margin-bottom: 12px;
     }
 
     .pasaran-logo {
-      height: 38px;
-      max-width: 160px;
+      height: 40px;
+      max-width: 170px;
       object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
     }
 
-    /* Market Pill Badge */
+    /* Market Pill Badge - 3D Minted Plaque */
     .market-pill {
       display: inline-block;
-      border: 1px solid rgba(196, 158, 31, 0.7);
-      background: rgba(22, 17, 6, 0.85);
+      border: 1.5px solid #ffd700;
+      background: linear-gradient(180deg, #302206 0%, #151003 100%);
       color: #ffd700;
       font-family: 'Poppins', sans-serif;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 3px 18px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      padding: 4px 22px;
       border-radius: 20px;
       text-transform: uppercase;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(196, 158, 31, 0.2);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.85),
+        inset 0 1px 2px rgba(255, 255, 255, 0.55),
+        inset 0 -1px 4px rgba(0, 0, 0, 0.8),
+        0 0 16px rgba(255, 215, 0, 0.4);
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
     }
 
     .syair-subkicker {
       font-family: 'Poppins', sans-serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 2.2px;
-      color: #c49e1f;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: #e5c158;
       text-transform: uppercase;
       margin-top: 5px;
-      text-shadow: 0 0 6px rgba(196, 158, 31, 0.4);
+      text-shadow: 0 0 8px rgba(196, 158, 31, 0.6), 0 2px 4px rgba(0, 0, 0, 0.9);
     }
 
     /* Divider flourish */
@@ -224,28 +291,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin: 8px auto 14px;
-      width: 80%;
+      gap: 10px;
+      margin: 10px auto 16px;
+      width: 85%;
     }
 
     .flourish-line span {
       flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(196, 158, 31, 0.5), transparent);
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.7), transparent);
     }
 
     .flourish-line svg {
-      width: 22px;
-      height: 12px;
-      fill: #c49e1f;
-      opacity: 0.8;
+      width: 70px;
+      height: 16px;
+      filter: drop-shadow(0 0 6px #ffd700);
     }
 
     /* Three Columns Grid */
     .syair-main-grid {
       display: grid;
-      grid-template-columns: 1.05fr 1.3fr 1.05fr;
+      grid-template-columns: 1.05fr 1.35fr 1.05fr;
       gap: 12px;
       align-items: center;
       position: relative;
@@ -253,7 +319,7 @@
       padding: 6px 0 14px;
     }
 
-    /* Section Title Badges */
+    /* Section Title Badges - 3D Minted Plaque */
     .grid-badge {
       display: inline-block;
       text-align: center;
@@ -261,17 +327,22 @@
       font-size: 11px;
       font-weight: 800;
       color: #ffd700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      border: 1px solid rgba(196, 158, 31, 0.45);
-      background: rgba(18, 14, 5, 0.7);
-      padding: 3px 12px;
-      border-radius: 12px;
+      border: 1.5px solid #d4af37;
+      background: linear-gradient(180deg, #2b1f06 0%, #120e03 100%);
+      padding: 4px 14px;
+      border-radius: 14px;
       margin-bottom: 8px;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+      box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.8),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
     }
 
-    /* LEFT: ARAH ANGKA / COMPASS */
+    /* LEFT: ARAH ANGKA / 3D GOLD ASTROLABE COMPASS */
     .col-compass {
       display: flex;
       flex-direction: column;
@@ -280,21 +351,30 @@
 
     .compass-box {
       position: relative;
-      width: 126px;
-      height: 126px;
+      width: 132px;
+      height: 132px;
       margin-top: 4px;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: radial-gradient(circle, rgba(45, 32, 7, 0.7) 0%, rgba(16, 12, 3, 0.85) 60%, transparent 72%);
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 215, 0, 0.4);
+      box-shadow:
+        inset 0 0 18px rgba(0, 0, 0, 0.9),
+        0 0 18px rgba(212, 175, 55, 0.25);
     }
 
     .compass-center {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: radial-gradient(circle, #251b07 0%, #120e03 70%, #060501 100%);
-      border: 1.5px solid #d4af37;
-      box-shadow: 0 0 14px rgba(255, 215, 0, 0.4), inset 0 0 8px rgba(255, 215, 0, 0.25);
+      background: radial-gradient(circle, #3d2b05 0%, #1b1403 70%, #080601 100%);
+      border: 2px solid #ffd700;
+      box-shadow:
+        0 0 0 2px #5a4109,
+        0 0 18px rgba(255, 215, 0, 0.6),
+        inset 0 0 10px rgba(255, 215, 0, 0.4);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -302,11 +382,11 @@
     }
 
     .compass-star {
-      color: #ffd700;
-      font-size: 20px;
+      color: #fff2b2;
+      font-size: 22px;
       line-height: 1;
-      filter: drop-shadow(0 0 6px #ffd700);
-      animation: starPulse 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px #ffd700);
+      animation: starPulse 2.8s ease-in-out infinite;
     }
 
     @keyframes starPulse {
@@ -319,19 +399,22 @@
 
       50% {
         transform: scale(1.15);
-        filter: drop-shadow(0 0 10px #ffe57f);
+        filter: drop-shadow(0 0 12px #ffe57f);
       }
     }
 
+    /* 3D Metallic Gradient Numerals */
     .compass-num {
       position: absolute;
       font-family: 'Cinzel', serif;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
-      color: #ffffff;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.9);
       line-height: 1;
       z-index: 3;
+      background: linear-gradient(180deg, #ffffff 0%, #fff1b0 30%, #ffd700 65%, #caa025 85%, #7d5e11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
     }
 
     .compass-num.num-top {
@@ -358,50 +441,105 @@
       transform: translateY(-50%);
     }
 
-    /* CENTER: ANGKA SHIO & MEDALLION */
+    /* CENTER: ANGKA SHIO & 3D ROYAL MEDALLION */
     .col-shio {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      position: relative;
     }
 
     .angka-shio-val {
       font-family: 'Cinzel', serif;
-      font-size: 46px;
+      font-size: 50px;
       font-weight: 900;
-      color: #ffffff;
       line-height: 1;
       letter-spacing: 2px;
       margin: 2px 0 6px;
-      text-shadow: 0 0 16px rgba(255, 215, 0, 0.7), 0 2px 6px rgba(0, 0, 0, 0.95);
+      background: linear-gradient(180deg, #ffffff 0%, #fff2b2 25%, #ffd700 55%, #caa025 80%, #7d5e11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.7));
     }
 
     .shio-medallion-wrap {
       position: relative;
-      width: 142px;
-      height: 142px;
+      width: 154px;
+      height: 154px;
       border-radius: 50%;
-      padding: 4px;
-      background: radial-gradient(circle, #3a2b06 0%, #1c1503 60%, #080601 100%);
-      border: 2.5px solid #ffd700;
+      padding: 5px;
+      background: radial-gradient(circle, #3d2b05 0%, #1e1503 60%, #080601 100%);
+      border: 3px solid #ffd700;
       box-shadow:
-        0 0 24px rgba(255, 215, 0, 0.55),
-        0 0 10px rgba(212, 175, 55, 0.35),
-        inset 0 0 18px rgba(0, 0, 0, 0.95);
+        0 0 0 2px #5a4109,
+        0 0 0 5px #d4af37,
+        0 0 0 8px #7a5c13,
+        0 12px 35px rgba(0, 0, 0, 0.95),
+        0 0 45px rgba(255, 215, 0, 0.65),
+        inset 0 0 25px rgba(0, 0, 0, 0.95);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .shio-medallion-wrap:hover {
+      transform: scale(1.06);
     }
 
     .shio-medallion-wrap::before {
       content: '';
       position: absolute;
-      inset: 3px;
+      inset: 2px;
       border-radius: 50%;
-      border: 1px dashed rgba(255, 215, 0, 0.45);
+      border: 2px dashed rgba(255, 215, 0, 0.5);
       pointer-events: none;
+      animation: rotateRing 40s linear infinite;
+    }
+
+    @keyframes rotateRing {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 3D Glass / Shimmer Sheen Reflection across Coin */
+    .shio-medallion-wrap::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 215, 0, 0.22) 60%, rgba(255, 255, 255, 0) 100%);
+      transform: rotate(30deg);
+      pointer-events: none;
+      animation: coinShimmer 6s ease-in-out infinite;
+    }
+
+    @keyframes coinShimmer {
+
+      0%,
+      100% {
+        transform: translateY(-100%) rotate(30deg);
+        opacity: 0;
+      }
+
+      20%,
+      40% {
+        transform: translateY(100%) rotate(30deg);
+        opacity: 0.85;
+      }
+
+      41% {
+        opacity: 0;
+      }
     }
 
     .shio-img {
@@ -409,24 +547,32 @@
       height: 100%;
       object-fit: contain;
       border-radius: 50%;
-      filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.9));
+      filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
       transition: transform 0.4s ease;
+      position: relative;
+      z-index: 1;
     }
 
-    .shio-img:hover {
-      transform: scale(1.05);
-    }
-
+    /* 3D Pedestal Ribbon for Shio Name */
     .shio-name-label {
+      display: inline-block;
       font-family: 'Cinzel', serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
-      letter-spacing: 2.5px;
+      letter-spacing: 3px;
       color: #ffd700;
-      /* Emas Elegan Berkilau */
       text-transform: uppercase;
-      margin-top: 8px;
-      text-shadow: 0 0 14px rgba(255, 215, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.95);
+      margin-top: 10px;
+      padding: 4px 18px;
+      background: linear-gradient(180deg, #2b1f06 0%, #130e03 100%);
+      border: 1.5px solid #d4af37;
+      border-radius: 20px;
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.8),
+        inset 0 1px 2px rgba(255, 255, 255, 0.45),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.7),
+        0 0 15px rgba(255, 215, 0, 0.4);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.95);
     }
 
     /* RIGHT: BBFS, ANGKA MAIN, 2D PILIHAN */
@@ -434,7 +580,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-align: center;
     }
 
@@ -445,50 +591,58 @@
     .num-subgroup .sub-label {
       display: block;
       font-family: 'Cinzel', serif;
-      font-size: 10px;
+      font-size: 10.5px;
       font-weight: 800;
       color: #ffd700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
       margin-bottom: 2px;
-      opacity: 0.9;
+      opacity: 0.95;
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
     }
 
+    /* 3D Minted Gold Numbers */
     .num-subgroup .val-bbfs {
       font-family: 'Cinzel', serif;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 3px;
-      text-shadow: 0 0 12px rgba(255, 215, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.9);
+      letter-spacing: 3.5px;
       line-height: 1.2;
+      background: linear-gradient(180deg, #ffffff 0%, #fff1b0 25%, #ffd700 55%, #caa025 80%, #7d5e11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 14px rgba(255, 215, 0, 0.5));
     }
 
     .num-subgroup .val-main {
       font-family: 'Poppins', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
-      color: #ffffff;
       letter-spacing: 2px;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
       line-height: 1.2;
+      background: linear-gradient(180deg, #ffffff 0%, #fff3b8 35%, #ffd700 70%, #b8860b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
     }
 
     .num-subgroup .val-2d {
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 2px;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      letter-spacing: 2.5px;
       line-height: 1.2;
+      background: linear-gradient(180deg, #ffffff 0%, #fff3b8 35%, #ffd700 70%, #b8860b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
     }
 
     /* Bottom Poem Section */
     .syair-bottom {
-      border-top: 1px solid rgba(196, 158, 31, 0.25);
+      border-top: 1.5px solid rgba(255, 215, 0, 0.35);
       padding-top: 14px;
-      margin-top: 4px;
+      margin-top: 6px;
       text-align: center;
       position: relative;
       z-index: 3;
@@ -497,43 +651,58 @@
     .syair-pantun {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 13.5px;
-      line-height: 1.75;
-      color: #fff4d1;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+      font-size: 14px;
+      line-height: 1.8;
+      color: #fff8e1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(255, 215, 0, 0.3);
       margin-bottom: 14px;
+      padding: 10px 18px;
+      background: rgba(14, 10, 3, 0.6);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 215, 0, 0.28);
+      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.85);
     }
 
-    /* Action Pill Button */
+    /* 3D Gold Action Pill Button */
     .btn-ups {
       display: inline-block;
-      border: 1px solid rgba(196, 158, 31, 0.65);
-      background: radial-gradient(circle, #2a1f05 0%, #151003 100%);
+      border: 1.5px solid #ffd700;
+      background: linear-gradient(180deg, #3d2b06 0%, #171103 100%);
       color: #ffd700;
       font-family: 'Poppins', sans-serif;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 6px 24px;
-      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      padding: 7px 28px;
+      border-radius: 24px;
       text-transform: uppercase;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(196, 158, 31, 0.2);
-      cursor: default;
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.85),
+        inset 0 1px 2px rgba(255, 255, 255, 0.55),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.35);
+      cursor: pointer;
       transition: all 0.3s ease;
+      position: relative;
     }
 
     .btn-ups:hover {
-      border-color: #ffd700;
-      box-shadow: 0 0 16px rgba(255, 215, 0, 0.4);
-      transform: translateY(-1px);
+      border-color: #ffffff;
+      color: #ffffff;
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.9),
+        0 0 28px rgba(255, 215, 0, 0.65),
+        inset 0 1px 3px rgba(255, 255, 255, 0.7);
+      transform: translateY(-2px);
     }
 
     /* Bottom Flourish Motif */
     .bottom-flourish {
       margin: 12px auto 0;
-      width: 60px;
-      height: 16px;
-      opacity: 0.65;
+      width: 90px;
+      height: 20px;
+      filter: drop-shadow(0 0 6px #ffd700);
+      opacity: 0.85;
     }
 
     /* Admin Control Bar (Disembunyikan secara rapi, bisa dibuka lewat klik rahasia / date picker) */
@@ -581,7 +750,12 @@
     /* Responsiveness */
     @media (max-width: 520px) {
       .syair-card {
-        padding: 18px 12px 14px;
+        padding: 24px 14px 18px;
+      }
+
+      .corner-decor {
+        width: 52px;
+        height: 52px;
       }
 
       .brand-logo {
@@ -589,27 +763,27 @@
       }
 
       .syair-date {
-        font-size: 15px;
+        font-size: 17px;
         letter-spacing: 2px;
       }
 
       .syair-main-grid {
-        grid-template-columns: 1fr 1.2fr 1fr;
+        grid-template-columns: 1fr 1.25fr 1fr;
         gap: 6px;
       }
 
       .compass-box {
-        width: 95px;
-        height: 95px;
+        width: 102px;
+        height: 102px;
       }
 
       .compass-center {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
       }
 
       .compass-star {
-        font-size: 15px;
+        font-size: 16px;
       }
 
       .compass-num {
@@ -617,37 +791,39 @@
       }
 
       .angka-shio-val {
-        font-size: 36px;
+        font-size: 38px;
       }
 
       .shio-medallion-wrap {
-        width: 105px;
-        height: 105px;
+        width: 118px;
+        height: 118px;
       }
 
       .shio-name-label {
-        font-size: 13.5px;
-        letter-spacing: 1.5px;
+        font-size: 12.5px;
+        letter-spacing: 1.8px;
+        padding: 3px 12px;
       }
 
       .num-subgroup .val-bbfs {
-        font-size: 17px;
-        letter-spacing: 1.8px;
+        font-size: 18px;
+        letter-spacing: 2px;
       }
 
       .num-subgroup .val-main {
-        font-size: 12px;
+        font-size: 13px;
         letter-spacing: 1px;
       }
 
       .num-subgroup .val-2d {
-        font-size: 12.5px;
+        font-size: 13.5px;
         letter-spacing: 1px;
       }
 
       .syair-pantun {
-        font-size: 11.5px;
+        font-size: 12px;
         line-height: 1.6;
+        padding: 8px 12px;
       }
     }
 
@@ -671,30 +847,116 @@
       </div>
       <div class="card-theme-overlay"></div>
 
-      <!-- Ornate Corners SVG -->
-      <svg class="corner-decor corner-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
-        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
-        <circle cx="20" cy="20" r="5" fill="#ffd700" />
-        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      <!-- Dynamic Metallic Light Shimmer -->
+      <div class="card-shimmer-sweep"></div>
+
+      <!-- Elaborate 3D Royal Baroque Gold Corners SVG -->
+      <svg class="corner-decor corner-tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldCornerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff8db" />
+            <stop offset="25%" stop-color="#ffd700" />
+            <stop offset="55%" stop-color="#caa025" />
+            <stop offset="80%" stop-color="#6e4d0c" />
+            <stop offset="100%" stop-color="#ffd700" />
+          </linearGradient>
+          <radialGradient id="gemGlow1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="35%" stop-color="#fff0a8" />
+            <stop offset="70%" stop-color="#ffd700" />
+            <stop offset="100%" stop-color="#805d0e" />
+          </radialGradient>
+        </defs>
+        <path d="M6 114 V26 C6 14.9543 14.9543 6 26 6 H114" stroke="url(#goldCornerGrad1)" stroke-width="3"
+          stroke-linecap="round" />
+        <path d="M14 114 V30 C14 21.1634 21.1634 14 30 14 H114" stroke="#e5c158" stroke-width="1.2"
+          stroke-dasharray="3 3" />
+        <path d="M22 114 V36 C22 28.268 28.268 22 36 22 H114" stroke="url(#goldCornerGrad1)" stroke-width="1.8"
+          stroke-linecap="round" />
+        <path d="M22 22 C34 34 46 26 50 18 C54 10 46 4 38 6 C30 8 32 20 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 C26 46 18 50 10 54 C4 46 6 38 8 30 C10 22 20 32 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 L48 48 M22 22 L36 8 M22 22 L8 36" stroke="url(#goldCornerGrad1)" stroke-width="2"
+          stroke-linecap="round" />
+        <polygon points="22,12 26,22 36,26 26,30 22,40 18,30 8,26 18,22" fill="url(#gemGlow1)" stroke="#ffd700"
+          stroke-width="0.8" />
+        <circle cx="22" cy="26" r="3" fill="#ffffff" opacity="0.9" />
+        <circle cx="56" cy="14" r="2.5" fill="#ffd700" />
+        <circle cx="78" cy="14" r="2" fill="#ffd700" />
+        <circle cx="98" cy="14" r="1.5" fill="#ffd700" />
+        <circle cx="14" cy="56" r="2.5" fill="#ffd700" />
+        <circle cx="14" cy="78" r="2" fill="#ffd700" />
+        <circle cx="14" cy="98" r="1.5" fill="#ffd700" />
       </svg>
-      <svg class="corner-decor corner-tr" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
-        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
-        <circle cx="20" cy="20" r="5" fill="#ffd700" />
-        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      <svg class="corner-decor corner-tr" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 114 V26 C6 14.9543 14.9543 6 26 6 H114" stroke="url(#goldCornerGrad1)" stroke-width="3"
+          stroke-linecap="round" />
+        <path d="M14 114 V30 C14 21.1634 21.1634 14 30 14 H114" stroke="#e5c158" stroke-width="1.2"
+          stroke-dasharray="3 3" />
+        <path d="M22 114 V36 C22 28.268 28.268 22 36 22 H114" stroke="url(#goldCornerGrad1)" stroke-width="1.8"
+          stroke-linecap="round" />
+        <path d="M22 22 C34 34 46 26 50 18 C54 10 46 4 38 6 C30 8 32 20 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 C26 46 18 50 10 54 C4 46 6 38 8 30 C10 22 20 32 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 L48 48 M22 22 L36 8 M22 22 L8 36" stroke="url(#goldCornerGrad1)" stroke-width="2"
+          stroke-linecap="round" />
+        <polygon points="22,12 26,22 36,26 26,30 22,40 18,30 8,26 18,22" fill="url(#gemGlow1)" stroke="#ffd700"
+          stroke-width="0.8" />
+        <circle cx="22" cy="26" r="3" fill="#ffffff" opacity="0.9" />
+        <circle cx="56" cy="14" r="2.5" fill="#ffd700" />
+        <circle cx="78" cy="14" r="2" fill="#ffd700" />
+        <circle cx="98" cy="14" r="1.5" fill="#ffd700" />
+        <circle cx="14" cy="56" r="2.5" fill="#ffd700" />
+        <circle cx="14" cy="78" r="2" fill="#ffd700" />
+        <circle cx="14" cy="98" r="1.5" fill="#ffd700" />
       </svg>
-      <svg class="corner-decor corner-bl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
-        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
-        <circle cx="20" cy="20" r="5" fill="#ffd700" />
-        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      <svg class="corner-decor corner-bl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 114 V26 C6 14.9543 14.9543 6 26 6 H114" stroke="url(#goldCornerGrad1)" stroke-width="3"
+          stroke-linecap="round" />
+        <path d="M14 114 V30 C14 21.1634 21.1634 14 30 14 H114" stroke="#e5c158" stroke-width="1.2"
+          stroke-dasharray="3 3" />
+        <path d="M22 114 V36 C22 28.268 28.268 22 36 22 H114" stroke="url(#goldCornerGrad1)" stroke-width="1.8"
+          stroke-linecap="round" />
+        <path d="M22 22 C34 34 46 26 50 18 C54 10 46 4 38 6 C30 8 32 20 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 C26 46 18 50 10 54 C4 46 6 38 8 30 C10 22 20 32 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 L48 48 M22 22 L36 8 M22 22 L8 36" stroke="url(#goldCornerGrad1)" stroke-width="2"
+          stroke-linecap="round" />
+        <polygon points="22,12 26,22 36,26 26,30 22,40 18,30 8,26 18,22" fill="url(#gemGlow1)" stroke="#ffd700"
+          stroke-width="0.8" />
+        <circle cx="22" cy="26" r="3" fill="#ffffff" opacity="0.9" />
+        <circle cx="56" cy="14" r="2.5" fill="#ffd700" />
+        <circle cx="78" cy="14" r="2" fill="#ffd700" />
+        <circle cx="98" cy="14" r="1.5" fill="#ffd700" />
+        <circle cx="14" cy="56" r="2.5" fill="#ffd700" />
+        <circle cx="14" cy="78" r="2" fill="#ffd700" />
+        <circle cx="14" cy="98" r="1.5" fill="#ffd700" />
       </svg>
-      <svg class="corner-decor corner-br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
-        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
-        <circle cx="20" cy="20" r="5" fill="#ffd700" />
-        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      <svg class="corner-decor corner-br" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 114 V26 C6 14.9543 14.9543 6 26 6 H114" stroke="url(#goldCornerGrad1)" stroke-width="3"
+          stroke-linecap="round" />
+        <path d="M14 114 V30 C14 21.1634 21.1634 14 30 14 H114" stroke="#e5c158" stroke-width="1.2"
+          stroke-dasharray="3 3" />
+        <path d="M22 114 V36 C22 28.268 28.268 22 36 22 H114" stroke="url(#goldCornerGrad1)" stroke-width="1.8"
+          stroke-linecap="round" />
+        <path d="M22 22 C34 34 46 26 50 18 C54 10 46 4 38 6 C30 8 32 20 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 C26 46 18 50 10 54 C4 46 6 38 8 30 C10 22 20 32 22 22 Z" fill="url(#goldCornerGrad1)"
+          opacity="0.9" />
+        <path d="M22 22 L48 48 M22 22 L36 8 M22 22 L8 36" stroke="url(#goldCornerGrad1)" stroke-width="2"
+          stroke-linecap="round" />
+        <polygon points="22,12 26,22 36,26 26,30 22,40 18,30 8,26 18,22" fill="url(#gemGlow1)" stroke="#ffd700"
+          stroke-width="0.8" />
+        <circle cx="22" cy="26" r="3" fill="#ffffff" opacity="0.9" />
+        <circle cx="56" cy="14" r="2.5" fill="#ffd700" />
+        <circle cx="78" cy="14" r="2" fill="#ffd700" />
+        <circle cx="98" cy="14" r="1.5" fill="#ffd700" />
+        <circle cx="14" cy="56" r="2.5" fill="#ffd700" />
+        <circle cx="14" cy="78" r="2" fill="#ffd700" />
+        <circle cx="14" cy="98" r="1.5" fill="#ffd700" />
       </svg>
 
       <!-- HEADER -->
@@ -717,8 +979,13 @@
 
         <div class="flourish-line">
           <span></span>
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2L14 9L21 12L14 15L12 22L10 15L3 12L10 9L12 2Z" />
+          <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 0L53 9L62 12L53 15L50 24L47 15L38 12L47 9L50 0Z" fill="#ffd700" />
+            <circle cx="50" cy="12" r="3" fill="#ffffff" />
+            <path d="M30 12C20 12 15 6 0 6C15 6 20 18 30 12Z" fill="#c49e1f" opacity="0.8" />
+            <path d="M70 12C80 12 85 6 100 6C85 6 80 18 70 12Z" fill="#c49e1f" opacity="0.8" />
+            <circle cx="34" cy="12" r="2" fill="#ffd700" />
+            <circle cx="66" cy="12" r="2" fill="#ffd700" />
           </svg>
           <span></span>
         </div>
@@ -781,10 +1048,13 @@
         </div>
         <div class="btn-ups">UTAMAKAN PREDIKSI SENDIRI</div>
         <div>
-          <svg class="bottom-flourish" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 10C35 10 25 2 0 2C25 2 35 18 50 18C65 18 75 2 100 2C75 2 65 10 50 10Z" fill="#c49e1f"
-              fill-opacity="0.4" />
-            <circle cx="50" cy="10" r="3" fill="#ffd700" />
+          <svg class="bottom-flourish" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 12C45 12 35 3 0 3C30 3 45 21 60 21C75 21 90 3 120 3C85 3 75 12 60 12Z"
+              fill="url(#goldCornerGrad1)" fill-opacity="0.85" />
+            <polygon points="60,4 63,12 71,12 65,17 67,24 60,19 53,24 55,17 49,12 57,12" fill="#ffd700" />
+            <circle cx="60" cy="14" r="2.5" fill="#ffffff" />
+            <circle cx="36" cy="12" r="2" fill="#ffd700" />
+            <circle cx="84" cy="12" r="2" fill="#ffd700" />
           </svg>
         </div>
       </div>
