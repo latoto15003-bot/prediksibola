@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LATOTO - Prediksi Bola Terakurat</title>
+<link rel="icon" href="./latoto-logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
+#latoto-root .ibc-loading-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:320px;gap:14px;font-family:'Poppins',sans-serif;background:#000000;border-radius:12px;padding:30px 20px;}
+#latoto-root .ibc-spinner{width:46px;height:46px;border:4px solid rgba(196,158,31,0.25);border-top-color:#ffd700;border-radius:50%;animation:ibcSpin .7s linear infinite;}
+@keyframes ibcSpin{to{transform:rotate(360deg)}}
+#latoto-root .ibc-loading-text{color:#ffd700;font-size:13px;font-weight:700;letter-spacing:1.5px;text-shadow:0 0 10px rgba(255,215,0,0.5);text-align:center;}
+#latoto-root .ibc-loading-sub{color:rgba(255,215,0,0.5);font-size:10px;letter-spacing:1px;text-align:center;margin-top:-8px;}
+#latoto-root .ibc-progress-wrap{width:80%;max-width:320px;margin-top:2px;}
+#latoto-root .ibc-progress-track{width:100%;height:10px;background:rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;border:1px solid rgba(196,158,31,0.3);position:relative;}
+#latoto-root .ibc-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a5c0b,#c49e1f,#ffd700);border-radius:8px;transition:width .4s ease;box-shadow:0 0 12px rgba(255,215,0,0.4),inset 0 1px 0 rgba(255,255,255,0.25);}
+#latoto-root .ibc-progress-pct{color:#ffd700;font-size:12px;font-weight:700;letter-spacing:1px;text-align:center;margin-top:6px;text-shadow:0 0 8px rgba(255,215,0,0.4);}
+</style>
+</head>
+<body>
+
+<div id="latoto-root">
+  <div class="ibc-loading-wrap">
+    <img src="./latoto-logo.png" alt="LATOTO" style="width:140px;max-height:80px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(255,215,0,0.6));margin-bottom:8px;"/>
+    <div class="ibc-spinner"></div>
+    <div class="ibc-loading-text">⚽ Memuat Prediksi Bola LATOTO…</div>
+    <div class="ibc-progress-wrap">
+      <div class="ibc-progress-track"><div class="ibc-progress-fill" id="ibc-pbar" style="width:20%"></div></div>
+      <div class="ibc-progress-pct" id="ibc-ppct">20%</div>
+    </div>
+  </div>
+</div>
+
+<script src="./logo-db-0.js"></script>
+<script src="./logo-db-1.js"></script>
+<script src="./logo-db-2.js"></script>
+<script src="./logo-db-3.js"></script>
+<script src="./logo-db-4.js"></script>
+<script src="./logo-db-5.js"></script>
+<script src="./logo-db-6.js"></script>
+<script src="./logo-db-7.js"></script>
+<script src="./logo-db-8.js"></script>
+<script src="./logo-db-9.js"></script>
+<script src="./logo-db.js"></script>
+<script src="./latoto-main.js"></script>
+
+<script>
+/* Kirim tinggi konten otomatis ke iframe induk */
+(function () {
+    var lastH = 0;
+    function sendHeight() {
+        var h = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+        );
+        if (h !== lastH) {
+            lastH = h;
+            try { parent.postMessage({ ziaEmbedHeight: h }, '*'); } catch (e) {}
+        }
+    }
+    setInterval(sendHeight, 600);
+    window.addEventListener('load', sendHeight);
+})();
+</script>
+
+</body>
+</html>

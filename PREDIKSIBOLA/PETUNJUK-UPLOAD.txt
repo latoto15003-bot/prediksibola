@@ -1,0 +1,42 @@
+====================================================================
+PANDUAN LENGKAP UPLOAD FILE PREDIKSI BOLA LATOTO KE SITUS
+====================================================================
+
+Folder ini ("latoto-upload") sudah berisi semua file mandiri dan siap diupload
+tanpa ketergantungan file luar:
+
+DAFTAR FILE DI FOLDER INI:
+1. latoto-embed.html         -> Halaman widget utama prediksi bola
+2. latoto-main.js            -> Script pemroses jadwal bola otomatis & tampilan LATOTO
+3. latoto-logo.png           -> Logo resmi mahkota emas LATOTO
+4. latoto-background-web.png -> Gambar background resmi LATOTO
+5. giffmbappee-finall.gif    -> Animasi pemain sepakbola Mbappe
+6. logo-db-0.js s/d 9.js     -> Database logo klub bola
+7. logo-db.js                -> Penggabung database logo klub
+8. KODE-EMBED-SITUS.txt      -> Kode script iframe untuk dipasang di artikel blog LATOTO
+
+--------------------------------------------------------------------
+CARA 1: UPLOAD KE GITHUB PAGES (GRATIS & SANGAT CEPAT - SEPERTI CONTOH ASLI)
+--------------------------------------------------------------------
+Contoh asli: https://shortcutpro.github.io/bolaauto/mancingduit-embed.html
+
+Langkah-langkahnya:
+1. Buat akun di https://github.com jika belum ada.
+2. Buat repository baru, misalnya beri nama: "latoto" atau "bola-latoto" (atur ke Public).
+3. Upload SEMUA isi file di folder "latoto-upload" ini ke repository tersebut.
+4. Buka menu repository: Settings -> Pages -> Pada bagian Branch pilih "main" / "master", lalu klik "Save".
+5. Link embed Anda akan aktif di:
+   https://[USERNAME-GITHUB-ANDA].github.io/[NAMA-REPO]/latoto-embed.html
+6. Buka file "KODE-EMBED-SITUS.txt", ubah URL iframe menjadi link Anda, lalu salin (copy)
+   ke editor artikel / blog situs LATOTO Anda.
+
+--------------------------------------------------------------------
+CARA 2: UPLOAD KE CPANEL / HOSTING PRIBADI / SUBDOMAIN
+--------------------------------------------------------------------
+1. Masuk ke cPanel -> File Manager -> public_html.
+2. Buat folder baru, misal "bola".
+3. Upload semua file dalam folder "latoto-upload" ini ke dalam folder "bola".
+4. Link embed Anda menjadi:
+   https://domain-anda.com/bola/latoto-embed.html
+5. Pasang kode dari "KODE-EMBED-SITUS.txt" ke postingan artikel di situs Anda.
+====================================================================
