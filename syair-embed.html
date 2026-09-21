@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYAIR LATOTO - Prediksi Syair Harian Autopilot</title>
+  <link rel="icon" href="./latoto-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold-main: #d4af37;
+      --gold-bright: #ffd700;
+      --gold-dim: #9a7b20;
+      --gold-glow: rgba(255, 215, 0, 0.45);
+      --gold-border: rgba(196, 158, 31, 0.7);
+      --gold-border-soft: rgba(196, 158, 31, 0.28);
+      --bg-dark: #070707;
+    }
+
+    html,
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 12px 6px;
+      overflow-x: hidden;
+    }
+
+    /* Card Outer Container */
+    .syair-container {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Card Box matching Screenshot 2 */
+    .syair-card {
+      background: radial-gradient(circle at 50% 25%, #141005 0%, #080808 65%, #030303 100%);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 4px;
+      position: relative;
+      padding: 24px 20px 20px;
+      box-shadow:
+        0 0 35px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(196, 158, 31, 0.18),
+        inset 0 0 30px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    /* Inner Gold Border */
+    .syair-card::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      right: 7px;
+      bottom: 7px;
+      border: 1px solid var(--gold-border-soft);
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Decorative Ornate Corners (SVG) */
+    .corner-decor {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.85;
+    }
+
+    .corner-tl {
+      top: 9px;
+      left: 9px;
+    }
+
+    .corner-tr {
+      top: 9px;
+      right: 9px;
+      transform: scaleX(-1);
+    }
+
+    .corner-bl {
+      bottom: 9px;
+      left: 9px;
+      transform: scaleY(-1);
+    }
+
+    .corner-br {
+      bottom: 9px;
+      right: 9px;
+      transform: scale(-1, -1);
+    }
+
+    /* Header Section */
+    .syair-header {
+      text-align: center;
+      position: relative;
+      z-index: 3;
+      padding-bottom: 8px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .brand-logo {
+      height: 54px;
+      max-width: 190px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.55));
+      transition: transform 0.3s ease;
+    }
+
+    .brand-logo:hover {
+      transform: scale(1.03);
+    }
+
+    /* Tanggal Autopilot */
+    .syair-date {
+      font-family: 'Cinzel', serif;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #ffd700;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.8);
+      margin: 4px 0 10px;
+      text-transform: uppercase;
+    }
+
+    /* Pasaran Logo */
+    .pasaran-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .pasaran-logo {
+      height: 38px;
+      max-width: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+    }
+
+    /* Market Pill Badge */
+    .market-pill {
+      display: inline-block;
+      border: 1px solid rgba(196, 158, 31, 0.7);
+      background: rgba(22, 17, 6, 0.85);
+      color: #ffd700;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 3px 18px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(196, 158, 31, 0.2);
+    }
+
+    .syair-subkicker {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: #c49e1f;
+      text-transform: uppercase;
+      margin-top: 5px;
+      text-shadow: 0 0 6px rgba(196, 158, 31, 0.4);
+    }
+
+    /* Divider flourish */
+    .flourish-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px auto 14px;
+      width: 80%;
+    }
+
+    .flourish-line span {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 158, 31, 0.5), transparent);
+    }
+
+    .flourish-line svg {
+      width: 22px;
+      height: 12px;
+      fill: #c49e1f;
+      opacity: 0.8;
+    }
+
+    /* Three Columns Grid */
+    .syair-main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.3fr 1.05fr;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      z-index: 3;
+      padding: 6px 0 14px;
+    }
+
+    /* Section Title Badges */
+    .grid-badge {
+      display: inline-block;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffd700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196, 158, 31, 0.45);
+      background: rgba(18, 14, 5, 0.7);
+      padding: 3px 12px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+    }
+
+    /* LEFT: ARAH ANGKA / COMPASS */
+    .col-compass {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .compass-box {
+      position: relative;
+      width: 126px;
+      height: 126px;
+      margin-top: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .compass-center {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #251b07 0%, #120e03 70%, #060501 100%);
+      border: 1.5px solid #d4af37;
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.4), inset 0 0 8px rgba(255, 215, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .compass-star {
+      color: #ffd700;
+      font-size: 20px;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px #ffd700);
+      animation: starPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes starPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px #ffd700);
+      }
+
+      50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 10px #ffe57f);
+      }
+    }
+
+    .compass-num {
+      position: absolute;
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.9);
+      line-height: 1;
+      z-index: 3;
+    }
+
+    .compass-num.num-top {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .compass-num.num-bottom {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .compass-num.num-left {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .compass-num.num-right {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* CENTER: ANGKA SHIO & MEDALLION */
+    .col-shio {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .angka-shio-val {
+      font-family: 'Cinzel', serif;
+      font-size: 46px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: 2px;
+      margin: 2px 0 6px;
+      text-shadow: 0 0 16px rgba(255, 215, 0, 0.7), 0 2px 6px rgba(0, 0, 0, 0.95);
+    }
+
+    .shio-medallion-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      padding: 5px;
+      background: radial-gradient(circle, #382806 0%, #1c1505 50%, #0c0902 100%);
+      border: 2px solid #d4af37;
+      box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.45),
+        inset 0 0 16px rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .shio-medallion-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 215, 0, 0.35);
+      pointer-events: none;
+    }
+
+    .shio-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+      transition: transform 0.4s ease;
+    }
+
+    .shio-img:hover {
+      transform: scale(1.05);
+    }
+
+    .shio-name-label {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: #4da384;
+      /* Hijau Elegan seperti di gambar */
+      text-transform: uppercase;
+      margin-top: 8px;
+      text-shadow: 0 0 12px rgba(77, 163, 132, 0.5), 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
+
+    /* RIGHT: BBFS, ANGKA MAIN, 2D PILIHAN */
+    .col-numbers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .num-subgroup {
+      width: 100%;
+    }
+
+    .num-subgroup .sub-label {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 800;
+      color: #ffd700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      opacity: 0.9;
+    }
+
+    .num-subgroup .val-bbfs {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 3px;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.9);
+      line-height: 1.2;
+    }
+
+    .num-subgroup .val-main {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      line-height: 1.2;
+    }
+
+    .num-subgroup .val-2d {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      line-height: 1.2;
+    }
+
+    /* Bottom Poem Section */
+    .syair-bottom {
+      border-top: 1px solid rgba(196, 158, 31, 0.25);
+      padding-top: 14px;
+      margin-top: 4px;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    .syair-pantun {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: #fff4d1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+      margin-bottom: 14px;
+    }
+
+    /* Action Pill Button */
+    .btn-ups {
+      display: inline-block;
+      border: 1px solid rgba(196, 158, 31, 0.65);
+      background: radial-gradient(circle, #2a1f05 0%, #151003 100%);
+      color: #ffd700;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 6px 24px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(196, 158, 31, 0.2);
+      cursor: default;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ups:hover {
+      border-color: #ffd700;
+      box-shadow: 0 0 16px rgba(255, 215, 0, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Bottom Flourish Motif */
+    .bottom-flourish {
+      margin: 12px auto 0;
+      width: 60px;
+      height: 16px;
+      opacity: 0.65;
+    }
+
+    /* Admin Control Bar (Disembunyikan secara rapi, bisa dibuka lewat klik rahasia / date picker) */
+    .admin-bar {
+      display: none;
+      margin-top: 12px;
+      background: rgba(18, 14, 5, 0.9);
+      border: 1px dashed rgba(196, 158, 31, 0.4);
+      border-radius: 8px;
+      padding: 8px 12px;
+      text-align: center;
+      font-size: 12px;
+      color: #ffd700;
+    }
+
+    .admin-bar.open {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .admin-bar input,
+    .admin-bar select {
+      background: #000;
+      color: #ffd700;
+      border: 1px solid #c49e1f;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .admin-bar button {
+      background: #c49e1f;
+      color: #000;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 520px) {
+      .syair-card {
+        padding: 18px 12px 14px;
+      }
+
+      .brand-logo {
+        height: 44px;
+      }
+
+      .syair-date {
+        font-size: 15px;
+        letter-spacing: 2px;
+      }
+
+      .syair-main-grid {
+        grid-template-columns: 1fr 1.2fr 1fr;
+        gap: 6px;
+      }
+
+      .compass-box {
+        width: 95px;
+        height: 95px;
+      }
+
+      .compass-center {
+        width: 36px;
+        height: 36px;
+      }
+
+      .compass-star {
+        font-size: 15px;
+      }
+
+      .compass-num {
+        font-size: 20px;
+      }
+
+      .angka-shio-val {
+        font-size: 36px;
+      }
+
+      .shio-medallion-wrap {
+        width: 105px;
+        height: 105px;
+      }
+
+      .shio-name-label {
+        font-size: 13.5px;
+        letter-spacing: 1.5px;
+      }
+
+      .num-subgroup .val-bbfs {
+        font-size: 17px;
+        letter-spacing: 1.8px;
+      }
+
+      .num-subgroup .val-main {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .num-subgroup .val-2d {
+        font-size: 12.5px;
+        letter-spacing: 1px;
+      }
+
+      .syair-pantun {
+        font-size: 11.5px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .syair-main-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="syair-container">
+    <div class="syair-card" id="syairCard">
+
+      <!-- Ornate Corners SVG -->
+      <svg class="corner-decor corner-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
+        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="20" cy="20" r="5" fill="#ffd700" />
+        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      </svg>
+      <svg class="corner-decor corner-tr" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
+        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="20" cy="20" r="5" fill="#ffd700" />
+        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      </svg>
+      <svg class="corner-decor corner-bl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
+        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="20" cy="20" r="5" fill="#ffd700" />
+        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      </svg>
+      <svg class="corner-decor corner-br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
+        <path d="M15 95V26C15 19.9249 19.9249 15 26 15H95" stroke="#9a7b20" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="20" cy="20" r="5" fill="#ffd700" />
+        <path d="M20 20L40 40M20 20L30 5M20 20L5 30" stroke="#d4af37" stroke-width="1.5" />
+      </svg>
+
+      <!-- HEADER -->
+      <div class="syair-header">
+        <div class="brand-logo-wrap" onclick="toggleAdmin()" title="Klik untuk opsi tanggal / pasaran"
+          style="cursor:pointer">
+          <img class="brand-logo" id="brandLogo" src="./latoto-logo.png"
+            onerror="this.src='https://raw.githubusercontent.com/latoto15003-bot/prediksibola/main/PREDIKSIBOLA/latoto-logo.png'"
+            alt="LATOTO">
+        </div>
+        <div class="syair-date" id="syairDate">22 SEPTEMBER 2026</div>
+
+        <div class="pasaran-wrap">
+          <img class="pasaran-logo" id="pasaranLogo"
+            src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/Logo%20togel/logo%20hongkong-lotto.png"
+            onerror="this.src='./pasaran/logo hongkong-lotto.png'" alt="HongKong Lotto">
+          <div class="market-pill" id="marketPill">MARKET HONGKONG LOTTO</div>
+          <div class="syair-subkicker">PREDIKSI SYAIR HARI INI</div>
+        </div>
+
+        <div class="flourish-line">
+          <span></span>
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L14 9L21 12L14 15L12 22L10 15L3 12L10 9L12 2Z" />
+          </svg>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- MAIN 3-COLUMNS GRID -->
+      <div class="syair-main-grid">
+
+        <!-- KOLOM KIRI: ARAH ANGKA -->
+        <div class="col-compass">
+          <span class="grid-badge">ARAH ANGKA</span>
+          <div class="compass-box">
+            <span class="compass-num num-top" id="arahTop">3</span>
+            <span class="compass-num num-left" id="arahLeft">0</span>
+            <div class="compass-center">
+              <span class="compass-star">✦</span>
+            </div>
+            <span class="compass-num num-right" id="arahRight">1</span>
+            <span class="compass-num num-bottom" id="arahBottom">2</span>
+          </div>
+        </div>
+
+        <!-- KOLOM TENGAH: ANGKA SHIO & MEDALLION -->
+        <div class="col-shio">
+          <span class="grid-badge">ANGKA SHIO</span>
+          <div class="angka-shio-val" id="angkaShioVal">39</div>
+          <div class="shio-medallion-wrap">
+            <img class="shio-img" id="shioImg"
+              src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/shio%20mancing/SHIO%20NAGA.png"
+              onerror="this.src='./shio/SHIO NAGA.png'" alt="SHIO NAGA">
+          </div>
+          <div class="shio-name-label" id="shioNameLabel">SHIO NAGA</div>
+        </div>
+
+        <!-- KOLOM KANAN: BBFS, ANGKA MAIN, 2D PILIHAN -->
+        <div class="col-numbers">
+          <div class="num-subgroup">
+            <span class="sub-label">BBFS</span>
+            <div class="val-bbfs" id="valBbfs">5890123</div>
+          </div>
+          <div class="num-subgroup">
+            <span class="sub-label">ANGKA MAIN</span>
+            <div class="val-main" id="valMain">3 • 1 • 2 • 0 • 8</div>
+          </div>
+          <div class="num-subgroup">
+            <span class="sub-label">2D PILIHAN</span>
+            <div class="val-2d" id="val2d">39 • 92 • 22</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM POEM (SYAIR) -->
+      <div class="syair-bottom">
+        <div class="syair-pantun" id="syairPantun">
+          Naga perkasa terbang ke awan<br>
+          Membawa pesan di ujung cakar<br>
+          Angka utama telah disiapkan<br>
+          Tetaplah bijak dalam menakar
+        </div>
+        <div class="btn-ups">UTAMAKAN PREDIKSI SENDIRI</div>
+        <div>
+          <svg class="bottom-flourish" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10C35 10 25 2 0 2C25 2 35 18 50 18C65 18 75 2 100 2C75 2 65 10 50 10Z" fill="#c49e1f"
+              fill-opacity="0.4" />
+            <circle cx="50" cy="10" r="3" fill="#ffd700" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- ADMIN TEST PANEL (Tersembunyi, klik logo untuk buka) -->
+      <div class="admin-bar" id="adminBar">
+        <span>⚙️ Opsi Pengujian Tanggal:</span>
+        <input type="date" id="datePicker" onchange="onDateChanged(this.value)">
+        <select id="marketSelect" onchange="onMarketChanged(this.value)">
+          <option value="HONGKONG LOTTO">HONGKONG LOTTO</option>
+          <option value="SINGAPORE">SINGAPORE</option>
+          <option value="SYDNEY LOTTO">SYDNEY LOTTO</option>
+          <option value="TOTO MACAU">TOTO MACAU</option>
+          <option value="CAMBODIA">CAMBODIA</option>
+        </select>
+        <button onclick="resetToLive()">Hari Ini (Live)</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /* ═══════════════════════════════════════════════════════════════════
+       LATOTO SYAIR AUTOPILOT ENGINE (Otomatis Pertanggal)
+       - Otomatis update mengikuti tanggal hari ini
+       - Shio berganti setiap hari tanpa terulang di hari berurutan
+       - Angka & Pantun konsisten sepanjang hari untuk setiap member
+       - Otomatis reload saat melewati pukul 00:00:02 tengah malam
+       ═══════════════════════════════════════════════════════════════════ */
+
+    (function () {
+      // Daftar 12 Shio & Kumpulan Angka 2D Resmi
+      var SHIO_DATA = [
+        {
+          name: 'SHIO NAGA',
+          file: 'SHIO NAGA.png',
+          angka: ['39', '03', '15', '27', '51', '63', '75', '87', '99'],
+          syair: [
+            "Naga perkasa terbang ke awan,\nMembawa pesan di ujung cakar.\nAngka utama telah disiapkan,\nTetaplah bijak dalam menakar.",
+            "Naga emas melintasi samudra,\nMembawa berkah kemakmuran raya.\nNomor jitu kini terbuka,\nSemoga JP bersama kita."
+          ]
+        },
+        {
+          name: 'SHIO ULAR',
+          file: 'SHIO ULAR.png',
+          angka: ['26', '02', '14', '38', '50', '62', '74', '86', '98'],
+          syair: [
+            "Ular melingkar di dahan jati,\nMembawa isyarat rahasia alam.\nPasang angka dengan mantap hati,\nRezeki datang di hening malam.",
+            "Gerak gemulai tiada bersuara,\nPetunjuk sakti hadir di dada.\nKemenangan datang tiada tara,\nBawa berkah bagi keluarga."
+          ]
+        },
+        {
+          name: 'SHIO KUDA',
+          file: 'SHIO KUDA.png',
+          angka: ['37', '01', '13', '25', '49', '61', '73', '85', '97'],
+          syair: [
+            "Kuda berlari kencang memburu,\nMembawa kabar angin kejayaan.\nRangkai nomor dengan jitu,\nBawa pulang kemenangan idaman.",
+            "Laju derap langkah kencana,\nMembuka jalan emas terbuka.\nAngka pilihan penuh pesona,\nRezeki melimpah tiada jeda."
+          ]
+        },
+        {
+          name: 'SHIO KAMBING',
+          file: 'SHIO KAMBING.png',
+          angka: ['48', '12', '24', '36', '60', '72', '84', '96'],
+          syair: [
+            "Kambing mendaki bukit nan damai,\nMencari padang penuh berkah.\nSyair sakti kini membaiat,\nMembawa hasil yang terindah.",
+            "Ketenangan hati membawa tuah,\nAngka terpilih janganlah goyah.\nRezeki berkah berlimpah ruah,\nSalam hangat penuh amanah."
+          ]
+        },
+        {
+          name: 'SHIO MONYET',
+          file: 'SHIO MONYET.png',
+          angka: ['35', '11', '23', '47', '59', '71', '83', '95'],
+          syair: [
+            "Monyet cerdik memetik buah,\nTanda kecerdasan memandu rasa.\nPilihlah angka dengan bertuah,\nHoki mengalir sepanjang masa.",
+            "Akal cerdik membaca peluang,\nPetunjuk alam datang menjelang.\nSusun nomor penuh gemilang,\nSenyum kemenangan kan terbentang."
+          ]
+        },
+        {
+          name: 'SHIO AYAM',
+          file: 'SHIO AYAM.png',
+          angka: ['22', '10', '34', '46', '58', '70', '82', '94'],
+          syair: [
+            "Ayam berkokok menyambut fajar,\nSinar mentari membawa harapan.\nAngka tarung telah berjejer,\nKemenangan pasti di genggaman.",
+            "Fajar menyingsing di timur terang,\nPetunjuk hoki kian benderang.\nTetap fokus jangan gamang,\nRezeki datang kita kan menang."
+          ]
+        },
+        {
+          name: 'SHIO ANJING',
+          file: 'SHIO ANJING.png',
+          angka: ['33', '09', '21', '45', '57', '69', '81', '93'],
+          syair: [
+            "Penjaga setia membawa berkah,\nKabar baik datang menjelang.\nTetap tenang jangan gelisah,\nNomor sakti bawa kita menang.",
+            "Kesetiaan membawa berkah abadi,\nPetunjuk mimpi kini menjadi.\nAngka tersusun rapi di hati,\nKemenangan besar menanti nanti."
+          ]
+        },
+        {
+          name: 'SHIO BABI',
+          file: 'SHIO BABI.png',
+          angka: ['44', '08', '20', '32', '56', '68', '80', '92'],
+          syair: [
+            "Kemakmuran datang menghampiri,\nPintu rezeki terbuka lebar.\nKombinasi angka telah terkunci,\nKeberuntungan segera berkibar.",
+            "Limpahan rezeki di depan mata,\nSemua isyarat nyata terpeta.\nNomor pilihan tiada dusta,\nSemoga JP selalu berlipat ganda."
+          ]
+        },
+        {
+          name: 'SHIO TIKUS',
+          file: 'SHIO TIKUS.png',
+          angka: ['31', '07', '19', '43', '55', '67', '79', '91'],
+          syair: [
+            "Tikus cerdik mencari celah,\nMenemukan jalan rahasia emas.\nPilihan angka janganlah salah,\nKemenangan hadir terang dan jelas.",
+            "Cermat melangkah di hening malam,\nMenembus misteri kode alam.\nAngka terkumpul di lubuk dalam,\nHoki berlimpah tiada padam."
+          ]
+        },
+        {
+          name: 'SHIO KERBAU',
+          file: 'SHIO KERBAU.png',
+          angka: ['42', '06', '18', '30', '54', '66', '78', '90'],
+          syair: [
+            "Kerbau setia membajak sawah,\nPanen rezeki melimpah ruah.\nHitung cermat janganlah goyah,\nAngka hoki siap merekah.",
+            "Kerja tekun berbuah manis,\nIsyarat alam tiada habis.\nSusun bilangan dengan taktis,\nRezeki datang begitu praktis."
+          ]
+        },
+        {
+          name: 'SHIO MACAN',
+          file: 'SHIO MACAN.png',
+          angka: ['29', '05', '17', '41', '53', '65', '77', '89'],
+          syair: [
+            "Aum sang raja menggetar rimba,\nTanda kekuatan tiada tara.\nPetunjuk sakti telah terbuka,\nBawa berkah untuk kita semua.",
+            "Langkah gagah penuh wibawa,\nAngka jitu mengguncang jiwa.\nPercaya diri saat menata,\nKemenangan emas di pelupuk mata."
+          ]
+        },
+        {
+          name: 'SHIO KELINCI',
+          file: 'SHIO KELINCI.png',
+          angka: ['40', '04', '16', '28', '52', '64', '76', '88', '00'],
+          syair: [
+            "Kelinci lincah melompat riang,\nMenuntun langkah ke pintu hoki.\nAngka pilihan telah terbentang,\nSemoga JP datang menghampiri.",
+            "Lompatan pasti menembus batas,\nPetunjuk mistis terlihat tuntas.\nTetapkan hati jangan cemas,\nRezeki mengalir secerah emas."
+          ]
+        }
+      ];
+
+      var PASARAN_MAP = {
+        'HONGKONG LOTTO': {
+          file: 'logo hongkong-lotto.png',
+          pill: 'MARKET HONGKONG LOTTO'
+        },
+        'SINGAPORE': {
+          file: 'logo singapore.png',
+          pill: 'MARKET SINGAPORE POOLS'
+        },
+        'SYDNEY LOTTO': {
+          file: 'logo sydney lotto.png',
+          pill: 'MARKET SYDNEY LOTTO'
+        },
+        'TOTO MACAU': {
+          file: 'logo toto macau.png',
+          pill: 'MARKET TOTO MACAU'
+        },
+        'CAMBODIA': {
+          file: 'logo cambodia.png',
+          pill: 'MARKET TOTO CAMBODIA'
+        }
+      };
+
+      var BULAN_INDONESIA = [
+        'JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI',
+        'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'
+      ];
+
+      // Fungsi Waktu Lokal Jakarta (WIB = UTC+7)
+      function getWIBDate() {
+        var now = new Date();
+        var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        return new Date(utc + (3600000 * 7));
+      }
+
+      // PRNG deterministik berbobot seed tanggal
+      var curSeed = 0;
+      function hash32(n) {
+        n = n >>> 0;
+        n = (((n >>> 16) ^ n) * 0x45d9f3b) >>> 0;
+        n = (((n >>> 16) ^ n) * 0x45d9f3b) >>> 0;
+        n = ((n >>> 16) ^ n) >>> 0;
+        return n;
+      }
+      function setSeed(baseSeed, offset) {
+        curSeed = (hash32((baseSeed * 2654435761 + offset * 2246822519) >>> 0) & 0x7fffffff);
+      }
+      function nextRnd() {
+        curSeed = (curSeed * 1103515245 + 12345) & 0x7fffffff;
+        return curSeed / 0x7fffffff;
+      }
+      function rndInt(min, max) {
+        return Math.floor(nextRnd() * (max - min + 1)) + min;
+      }
+      function shuffleArray(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(nextRnd() * (i + 1));
+          var t = a[i]; a[i] = a[j]; a[j] = t;
+        }
+        return a;
+      }
+
+      var activeDate = null;
+      var activeMarket = 'HONGKONG LOTTO';
+
+      // Render Card berdasarkan Tanggal
+      function renderCard(targetDate, marketKey) {
+        var y = targetDate.getFullYear();
+        var m = targetDate.getMonth();
+        var d = targetDate.getDate();
+
+        // 1. Tampilkan Tanggal
+        var dateStr = d + ' ' + BULAN_INDONESIA[m] + ' ' + y;
+        document.getElementById('syairDate').textContent = dateStr;
+
+        // 2. Base Seed Harian (YYYYMMDD)
+        var seed0 = y * 10000 + (m + 1) * 100 + d;
+
+        // 3. Kalibrasi Khusus 22 September 2026 agar 100% presisi dengan Screenshot 2
+        var isSampleDate = (y === 2026 && m === 8 && d === 22);
+
+        // 4. Shio Index (Rotasi pasti 1 shio per hari tanpa berulang)
+        var dayNumber = Math.floor(Date.UTC(y, m, d) / 86400000);
+        // Offset diselaraskan agar 22 September 2026 jatuh di SHIO NAGA (index 0)
+        var offsetNaga = 20718; // Epoch day modulo kalibrasi
+        var shioIndex = ((dayNumber - offsetNaga) % SHIO_DATA.length + SHIO_DATA.length) % SHIO_DATA.length;
+        var shioObj = SHIO_DATA[shioIndex];
+
+        document.getElementById('shioNameLabel').textContent = shioObj.name;
+        var shioImgEl = document.getElementById('shioImg');
+        shioImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/shio%20mancing/' + encodeURIComponent(shioObj.file);
+        shioImgEl.onerror = function () {
+          this.src = './shio/' + shioObj.file;
+        };
+
+        // 5. Angka Shio
+        var angkaShioVal;
+        if (isSampleDate) {
+          angkaShioVal = '39';
+        } else {
+          setSeed(seed0, 101);
+          angkaShioVal = shioObj.angka[rndInt(0, shioObj.angka.length - 1)];
+        }
+        document.getElementById('angkaShioVal').textContent = angkaShioVal;
+
+        // 6. Arah Angka (Kompas 4 Angka: Top, Left, Right, Bottom)
+        if (isSampleDate) {
+          document.getElementById('arahTop').textContent = '3';
+          document.getElementById('arahLeft').textContent = '0';
+          document.getElementById('arahRight').textContent = '1';
+          document.getElementById('arahBottom').textContent = '2';
+        } else {
+          setSeed(seed0, 202);
+          var digitsArah = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 4);
+          document.getElementById('arahTop').textContent = digitsArah[0];
+          document.getElementById('arahLeft').textContent = digitsArah[1];
+          document.getElementById('arahRight').textContent = digitsArah[2];
+          document.getElementById('arahBottom').textContent = digitsArah[3];
+        }
+
+        // 7. BBFS (7 Digit)
+        if (isSampleDate) {
+          document.getElementById('valBbfs').textContent = '5890123';
+        } else {
+          setSeed(seed0, 303);
+          var bbfsPool = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 7);
+          document.getElementById('valBbfs').textContent = bbfsPool.join('');
+        }
+
+        // 8. Angka Main (5 Angka dipisah titik •)
+        if (isSampleDate) {
+          document.getElementById('valMain').textContent = '3 • 1 • 2 • 0 • 8';
+        } else {
+          setSeed(seed0, 404);
+          var mainPool = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 5);
+          document.getElementById('valMain').textContent = mainPool.join(' • ');
+        }
+
+        // 9. 2D Pilihan (3 Pasang Angka 2D)
+        if (isSampleDate) {
+          document.getElementById('val2d').textContent = '39 • 92 • 22';
+        } else {
+          setSeed(seed0, 505);
+          var p1 = angkaShioVal;
+          var p2 = String(rndInt(10, 99));
+          var p3 = String(rndInt(10, 99));
+          document.getElementById('val2d').textContent = p1 + ' • ' + p2 + ' • ' + p3;
+        }
+
+        // 10. Pantun Syair
+        var syairIdx;
+        if (isSampleDate) {
+          syairIdx = 0;
+        } else {
+          setSeed(seed0, 606);
+          syairIdx = rndInt(0, shioObj.syair.length - 1);
+        }
+        var rawSyair = shioObj.syair[syairIdx] || shioObj.syair[0];
+        document.getElementById('syairPantun').innerHTML = rawSyair.replace(/\n/g, '<br>');
+
+        // 11. Pasaran
+        var pasObj = PASARAN_MAP[marketKey] || PASARAN_MAP['HONGKONG LOTTO'];
+        var pasImgEl = document.getElementById('pasaranLogo');
+        pasImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/Logo%20togel/' + encodeURIComponent(pasObj.file);
+        pasImgEl.onerror = function () {
+          this.src = './pasaran/' + pasObj.file;
+        };
+        document.getElementById('marketPill').textContent = pasObj.pill;
+
+        // Kirim tinggi iframe otomatis ke parent website
+        sendIframeHeight();
+      }
+
+      // Komunikasi ukuran dinamis ke iframe induk
+      var lastSentH = 0;
+      function sendIframeHeight() {
+        setTimeout(function () {
+          var h = document.body.scrollHeight || document.documentElement.scrollHeight;
+          if (Math.abs(h - lastSentH) > 4) {
+            lastSentH = h;
+            try {
+              window.parent.postMessage({ ziaEmbedHeight: h }, '*');
+            } catch (e) { }
+          }
+        }, 150);
+      }
+
+      // Setup Awal
+      activeDate = getWIBDate();
+
+      // Baca URL Param jika ada (misal ?date=2026-09-22&market=HONGKONG+LOTTO)
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('date')) {
+        var pD = new Date(params.get('date'));
+        if (!isNaN(pD.getTime())) activeDate = pD;
+      }
+      if (params.has('market')) {
+        var pM = params.get('market').toUpperCase();
+        if (PASARAN_MAP[pM]) activeMarket = pM;
+      }
+
+      renderCard(activeDate, activeMarket);
+
+      // Jadwalkan auto-refresh di jam 00:00:02 WIB berikutnya
+      (function scheduleMidnightReload() {
+        var now = getWIBDate();
+        var nextMid = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 2);
+        var msUntilMid = nextMid.getTime() - now.getTime();
+        if (msUntilMid > 0) {
+          setTimeout(function () {
+            activeDate = getWIBDate();
+            renderCard(activeDate, activeMarket);
+            scheduleMidnightReload();
+          }, msUntilMid);
+        }
+      })();
+
+      // Respon saat window resize
+      window.addEventListener('resize', sendIframeHeight);
+      window.addEventListener('load', sendIframeHeight);
+
+      // Admin Toggle Helper
+      window.toggleAdmin = function () {
+        var bar = document.getElementById('adminBar');
+        bar.classList.toggle('open');
+        sendIframeHeight();
+      };
+      window.onDateChanged = function (val) {
+        if (!val) return;
+        activeDate = new Date(val + 'T00:00:00');
+        renderCard(activeDate, activeMarket);
+      };
+      window.onMarketChanged = function (val) {
+        activeMarket = val;
+        renderCard(activeDate, activeMarket);
+      };
+      window.resetToLive = function () {
+        activeDate = getWIBDate();
+        document.getElementById('datePicker').value = '';
+        renderCard(activeDate, activeMarket);
+      };
+
+    })();
+  </script>
+
+</body>
+
+</html>
