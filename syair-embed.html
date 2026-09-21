@@ -51,18 +51,43 @@
       position: relative;
     }
 
-    /* Card Box matching Screenshot 2 */
+    /* Card Box matching Screenshot 2 with HD Pasaran Background */
     .syair-card {
-      background: radial-gradient(circle at 50% 25%, #141005 0%, #080808 65%, #030303 100%);
+      background-color: #060502;
       border: 1.5px solid var(--gold-border);
       border-radius: 4px;
       position: relative;
       padding: 24px 20px 20px;
       box-shadow:
         0 0 35px rgba(0, 0, 0, 0.95),
-        0 0 20px rgba(196, 158, 31, 0.18),
-        inset 0 0 30px rgba(0, 0, 0, 0.8);
+        0 0 20px rgba(196, 158, 31, 0.22),
+        inset 0 0 30px rgba(0, 0, 0, 0.85);
       overflow: hidden;
+    }
+
+    /* HD Dynamic Thematic Pasaran Background */
+    .card-theme-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0.36;
+      filter: saturate(1.25) contrast(1.15) brightness(0.92);
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Vignette & Radial Dark Gradient Overlay to ensure crisp golden contrast */
+    .card-theme-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(18, 14, 4, 0.6) 0%, rgba(6, 6, 6, 0.85) 60%, rgba(2, 2, 2, 0.96) 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.22) 45%, rgba(0, 0, 0, 0.85) 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     /* Inner Gold Border */
@@ -76,7 +101,7 @@
       border: 1px solid var(--gold-border-soft);
       border-radius: 3px;
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
     }
 
     /* Decorative Ornate Corners (SVG) */
@@ -85,8 +110,8 @@
       width: 42px;
       height: 42px;
       pointer-events: none;
-      z-index: 2;
-      opacity: 0.85;
+      z-index: 3;
+      opacity: 0.88;
     }
 
     .corner-tl {
@@ -354,15 +379,16 @@
 
     .shio-medallion-wrap {
       position: relative;
-      width: 140px;
-      height: 140px;
+      width: 142px;
+      height: 142px;
       border-radius: 50%;
-      padding: 5px;
-      background: radial-gradient(circle, #382806 0%, #1c1505 50%, #0c0902 100%);
-      border: 2px solid #d4af37;
+      padding: 4px;
+      background: radial-gradient(circle, #3a2b06 0%, #1c1503 60%, #080601 100%);
+      border: 2.5px solid #ffd700;
       box-shadow:
-        0 0 20px rgba(212, 175, 55, 0.45),
-        inset 0 0 16px rgba(0, 0, 0, 0.9);
+        0 0 24px rgba(255, 215, 0, 0.55),
+        0 0 10px rgba(212, 175, 55, 0.35),
+        inset 0 0 18px rgba(0, 0, 0, 0.95);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -374,7 +400,7 @@
       position: absolute;
       inset: 3px;
       border-radius: 50%;
-      border: 1px dashed rgba(255, 215, 0, 0.35);
+      border: 1px dashed rgba(255, 215, 0, 0.45);
       pointer-events: none;
     }
 
@@ -383,7 +409,7 @@
       height: 100%;
       object-fit: contain;
       border-radius: 50%;
-      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+      filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.9));
       transition: transform 0.4s ease;
     }
 
@@ -396,11 +422,11 @@
       font-size: 17px;
       font-weight: 800;
       letter-spacing: 2.5px;
-      color: #4da384;
-      /* Hijau Elegan seperti di gambar */
+      color: #ffd700;
+      /* Emas Elegan Berkilau */
       text-transform: uppercase;
       margin-top: 8px;
-      text-shadow: 0 0 12px rgba(77, 163, 132, 0.5), 0 2px 4px rgba(0, 0, 0, 0.9);
+      text-shadow: 0 0 14px rgba(255, 215, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.95);
     }
 
     /* RIGHT: BBFS, ANGKA MAIN, 2D PILIHAN */
@@ -639,6 +665,12 @@
   <div class="syair-container">
     <div class="syair-card" id="syairCard">
 
+      <!-- HD Pasaran Thematic Background & Overlay -->
+      <div class="card-theme-bg" id="cardThemeBg"
+        style="background-image: url('https://png-res.png999.com/assets/LOTTERY-Web/cardList/HKGLT/icon/icon.png');">
+      </div>
+      <div class="card-theme-overlay"></div>
+
       <!-- Ornate Corners SVG -->
       <svg class="corner-decor corner-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 95V20C5 11.7157 11.7157 5 20 5H95" stroke="#d4af37" stroke-width="2" />
@@ -715,8 +747,8 @@
           <div class="angka-shio-val" id="angkaShioVal">39</div>
           <div class="shio-medallion-wrap">
             <img class="shio-img" id="shioImg"
-              src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/shio%20mancing/SHIO%20NAGA.png"
-              onerror="this.src='./shio/SHIO NAGA.png'" alt="SHIO NAGA">
+              src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/SHIO%20HOKBEN/shio%20naga.png"
+              onerror="this.src='./shio/shio naga.png'" alt="SHIO NAGA">
           </div>
           <div class="shio-name-label" id="shioNameLabel">SHIO NAGA</div>
         </div>
@@ -784,11 +816,11 @@
        ═══════════════════════════════════════════════════════════════════ */
 
     (function () {
-      // Daftar 12 Shio & Kumpulan Angka 2D Resmi
+      // Daftar 12 Shio (Full Emas 3D Murni) & Kumpulan Angka 2D Resmi
       var SHIO_DATA = [
         {
           name: 'SHIO NAGA',
-          file: 'SHIO NAGA.png',
+          file: 'shio naga.png',
           angka: ['39', '03', '15', '27', '51', '63', '75', '87', '99'],
           syair: [
             "Naga perkasa terbang ke awan,\nMembawa pesan di ujung cakar.\nAngka utama telah disiapkan,\nTetaplah bijak dalam menakar.",
@@ -797,7 +829,7 @@
         },
         {
           name: 'SHIO ULAR',
-          file: 'SHIO ULAR.png',
+          file: 'shio ular.png',
           angka: ['26', '02', '14', '38', '50', '62', '74', '86', '98'],
           syair: [
             "Ular melingkar di dahan jati,\nMembawa isyarat rahasia alam.\nPasang angka dengan mantap hati,\nRezeki datang di hening malam.",
@@ -806,7 +838,7 @@
         },
         {
           name: 'SHIO KUDA',
-          file: 'SHIO KUDA.png',
+          file: 'shio kuda.png',
           angka: ['37', '01', '13', '25', '49', '61', '73', '85', '97'],
           syair: [
             "Kuda berlari kencang memburu,\nMembawa kabar angin kejayaan.\nRangkai nomor dengan jitu,\nBawa pulang kemenangan idaman.",
@@ -815,7 +847,7 @@
         },
         {
           name: 'SHIO KAMBING',
-          file: 'SHIO KAMBING.png',
+          file: 'shio kambing.png',
           angka: ['48', '12', '24', '36', '60', '72', '84', '96'],
           syair: [
             "Kambing mendaki bukit nan damai,\nMencari padang penuh berkah.\nSyair sakti kini membaiat,\nMembawa hasil yang terindah.",
@@ -824,7 +856,7 @@
         },
         {
           name: 'SHIO MONYET',
-          file: 'SHIO MONYET.png',
+          file: 'shio monyet.png',
           angka: ['35', '11', '23', '47', '59', '71', '83', '95'],
           syair: [
             "Monyet cerdik memetik buah,\nTanda kecerdasan memandu rasa.\nPilihlah angka dengan bertuah,\nHoki mengalir sepanjang masa.",
@@ -833,7 +865,7 @@
         },
         {
           name: 'SHIO AYAM',
-          file: 'SHIO AYAM.png',
+          file: 'shio ayam.png',
           angka: ['22', '10', '34', '46', '58', '70', '82', '94'],
           syair: [
             "Ayam berkokok menyambut fajar,\nSinar mentari membawa harapan.\nAngka tarung telah berjejer,\nKemenangan pasti di genggaman.",
@@ -842,7 +874,7 @@
         },
         {
           name: 'SHIO ANJING',
-          file: 'SHIO ANJING.png',
+          file: 'shio anjing.png',
           angka: ['33', '09', '21', '45', '57', '69', '81', '93'],
           syair: [
             "Penjaga setia membawa berkah,\nKabar baik datang menjelang.\nTetap tenang jangan gelisah,\nNomor sakti bawa kita menang.",
@@ -851,7 +883,7 @@
         },
         {
           name: 'SHIO BABI',
-          file: 'SHIO BABI.png',
+          file: 'shio babi.png',
           angka: ['44', '08', '20', '32', '56', '68', '80', '92'],
           syair: [
             "Kemakmuran datang menghampiri,\nPintu rezeki terbuka lebar.\nKombinasi angka telah terkunci,\nKeberuntungan segera berkibar.",
@@ -860,7 +892,7 @@
         },
         {
           name: 'SHIO TIKUS',
-          file: 'SHIO TIKUS.png',
+          file: 'shio tikus.png',
           angka: ['31', '07', '19', '43', '55', '67', '79', '91'],
           syair: [
             "Tikus cerdik mencari celah,\nMenemukan jalan rahasia emas.\nPilihan angka janganlah salah,\nKemenangan hadir terang dan jelas.",
@@ -869,7 +901,7 @@
         },
         {
           name: 'SHIO KERBAU',
-          file: 'SHIO KERBAU.png',
+          file: 'shio kerbau.png',
           angka: ['42', '06', '18', '30', '54', '66', '78', '90'],
           syair: [
             "Kerbau setia membajak sawah,\nPanen rezeki melimpah ruah.\nHitung cermat janganlah goyah,\nAngka hoki siap merekah.",
@@ -877,8 +909,8 @@
           ]
         },
         {
-          name: 'SHIO MACAN',
-          file: 'SHIO MACAN.png',
+          name: 'SHIO HARIMAU',
+          file: 'shio harimau.png',
           angka: ['29', '05', '17', '41', '53', '65', '77', '89'],
           syair: [
             "Aum sang raja menggetar rimba,\nTanda kekuatan tiada tara.\nPetunjuk sakti telah terbuka,\nBawa berkah untuk kita semua.",
@@ -887,7 +919,7 @@
         },
         {
           name: 'SHIO KELINCI',
-          file: 'SHIO KELINCI.png',
+          file: 'shio kelinci.png',
           angka: ['40', '04', '16', '28', '52', '64', '76', '88', '00'],
           syair: [
             "Kelinci lincah melompat riang,\nMenuntun langkah ke pintu hoki.\nAngka pilihan telah terbentang,\nSemoga JP datang menghampiri.",
@@ -899,23 +931,28 @@
       var PASARAN_MAP = {
         'HONGKONG LOTTO': {
           file: 'logo hongkong-lotto.png',
-          pill: 'MARKET HONGKONG LOTTO'
+          pill: 'MARKET HONGKONG LOTTO',
+          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/HKGLT/icon/icon.png'
         },
         'SINGAPORE': {
           file: 'logo singapore.png',
-          pill: 'MARKET SINGAPORE POOLS'
+          pill: 'MARKET SINGAPORE POOLS',
+          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/SGD/icon/icon.png'
         },
         'SYDNEY LOTTO': {
           file: 'logo sydney lotto.png',
-          pill: 'MARKET SYDNEY LOTTO'
+          pill: 'MARKET SYDNEY LOTTO',
+          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/SYDLT/icon/icon.png'
         },
         'TOTO MACAU': {
           file: 'logo toto macau.png',
-          pill: 'MARKET TOTO MACAU'
+          pill: 'MARKET TOTO MACAU',
+          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/TTM4/icon/icon.png'
         },
         'CAMBODIA': {
           file: 'logo cambodia.png',
-          pill: 'MARKET TOTO CAMBODIA'
+          pill: 'MARKET TOTO CAMBODIA',
+          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/TTC/icon/icon.png'
         }
       };
 
@@ -987,7 +1024,7 @@
 
         document.getElementById('shioNameLabel').textContent = shioObj.name;
         var shioImgEl = document.getElementById('shioImg');
-        shioImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/shio%20mancing/' + encodeURIComponent(shioObj.file);
+        shioImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/SHIO%20HOKBEN/' + encodeURIComponent(shioObj.file);
         shioImgEl.onerror = function () {
           this.src = './shio/' + shioObj.file;
         };
@@ -1057,7 +1094,7 @@
         var rawSyair = shioObj.syair[syairIdx] || shioObj.syair[0];
         document.getElementById('syairPantun').innerHTML = rawSyair.replace(/\n/g, '<br>');
 
-        // 11. Pasaran
+        // 11. Pasaran & Background HD Thematic
         var pasObj = PASARAN_MAP[marketKey] || PASARAN_MAP['HONGKONG LOTTO'];
         var pasImgEl = document.getElementById('pasaranLogo');
         pasImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/Logo%20togel/' + encodeURIComponent(pasObj.file);
@@ -1065,6 +1102,12 @@
           this.src = './pasaran/' + pasObj.file;
         };
         document.getElementById('marketPill').textContent = pasObj.pill;
+
+        // Background HD sesuai Pasaran
+        var cardBgEl = document.getElementById('cardThemeBg');
+        if (cardBgEl && pasObj.bg) {
+          cardBgEl.style.backgroundImage = 'url("' + pasObj.bg + '")';
+        }
 
         // Kirim tinggi iframe otomatis ke parent website
         sendIframeHeight();
