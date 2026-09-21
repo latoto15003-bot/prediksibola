@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <style>
     *,
@@ -21,13 +21,11 @@
     }
 
     :root {
-      --gold-main: #d4af37;
       --gold-bright: #ffd700;
-      --gold-dim: #9a7b20;
-      --gold-glow: rgba(255, 215, 0, 0.45);
-      --gold-border: rgba(196, 158, 31, 0.7);
-      --gold-border-soft: rgba(196, 158, 31, 0.28);
-      --bg-dark: #070707;
+      --gold-main: #d4af37;
+      --gold-dim: #8b6b18;
+      --gold-dark: #3a2a06;
+      --bg-dark: #050402;
     }
 
     html,
@@ -43,21 +41,27 @@
       overflow-x: hidden;
     }
 
-    /* Card Outer Container */
+    /* ═══════════════════════════════════════════════════════════════════
+       CONTAINER & CARD (Square Proportion Sesuai Referensi Pengguna)
+       ═══════════════════════════════════════════════════════════════════ */
     .syair-container {
       width: 100%;
-      max-width: 620px;
+      max-width: 740px;
       margin: 0 auto;
       position: relative;
     }
 
-    /* Card Box with Ultra-Luxurious 3D Sculpted Gold Frame */
     .syair-card {
-      background-color: #060502;
+      background-color: #050402;
       position: relative;
-      padding: 30px 22px 24px;
-      border-radius: 8px;
+      width: 100%;
+      min-height: 740px;
+      border-radius: 12px;
       overflow: hidden;
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       /* Multi-layered 3D Beveled Gold Moulding Frame */
       border: 3.5px solid #ffe285;
@@ -68,32 +72,44 @@
         0 0 0 10px #6d4e0e,
         0 0 0 12px #ffd700,
         0 0 0 14px #2b1d04,
-        0 25px 70px rgba(0, 0, 0, 0.98),
-        0 0 50px rgba(255, 215, 0, 0.45),
-        inset 0 0 40px rgba(0, 0, 0, 0.95);
+        0 25px 75px rgba(0, 0, 0, 0.98),
+        0 0 55px rgba(255, 215, 0, 0.45),
+        inset 0 0 45px rgba(0, 0, 0, 0.95);
     }
 
-    /* HD Dynamic Thematic Pasaran Background (Tampak Lebih Jelas, Berwarna & Hidup) */
+    /* ═══════════════════════════════════════════════════════════════════
+       ULTRA-HD THEMATIC BACKGROUND DENGAN BANYAK VARIASI (TETAP LATOTO)
+       ═══════════════════════════════════════════════════════════════════ */
     .card-theme-bg {
       position: absolute;
       inset: 0;
+      background-image: url('./latoto-syair-bg.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: 0.62;
-      filter: saturate(1.4) contrast(1.22) brightness(1.08);
-      transition: opacity 0.6s ease;
+      opacity: 0.88;
+      filter: saturate(1.25) contrast(1.15) brightness(1.02);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Vignette & Radial Dark Gradient Overlay to ensure crisp golden contrast */
+    /* Atmosphere Lighting Overlay per Pasaran */
+    .card-theme-atmosphere {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      transition: background 0.7s ease;
+    }
+
+    /* Vignette & Radial Dark Center Mask agar text, angka, dan shio terbaca kristal */
     .card-theme-overlay {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 36%, rgba(8, 6, 2, 0.42) 0%, rgba(5, 4, 2, 0.72) 65%, rgba(1, 1, 1, 0.94) 100%),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.12) 35%, rgba(0, 0, 0, 0.75) 100%);
+        radial-gradient(circle at 50% 46%, rgba(5, 4, 2, 0.52) 0%, rgba(3, 2, 1, 0.82) 68%, rgba(0, 0, 0, 0.96) 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.75) 100%);
       pointer-events: none;
       z-index: 1;
     }
@@ -107,7 +123,7 @@
       right: 10px;
       bottom: 10px;
       border: 1.5px solid #ffd700;
-      border-radius: 4px;
+      border-radius: 6px;
       box-shadow:
         0 0 12px rgba(255, 215, 0, 0.35),
         inset 0 0 16px rgba(0, 0, 0, 0.9);
@@ -124,7 +140,7 @@
       right: 15px;
       bottom: 15px;
       border: 1px dashed rgba(255, 215, 0, 0.35);
-      border-radius: 3px;
+      border-radius: 4px;
       pointer-events: none;
       z-index: 2;
     }
@@ -136,7 +152,7 @@
       left: -60%;
       width: 220%;
       height: 220%;
-      background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.14) 48%, rgba(255, 215, 0, 0.25) 50%, rgba(255, 255, 255, 0.14) 52%, transparent 60%);
+      background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 215, 0, 0.22) 50%, rgba(255, 255, 255, 0.12) 52%, transparent 60%);
       transform: rotate(35deg);
       pointer-events: none;
       z-index: 2;
@@ -144,270 +160,284 @@
     }
 
     @keyframes frameLightSweep {
-
-      0%,
-      20% {
+      0%, 20% {
         transform: translateY(-120%) rotate(35deg);
         opacity: 0;
       }
-
-      32%,
-      46% {
+      32%, 46% {
         transform: translateY(120%) rotate(35deg);
         opacity: 0.9;
       }
-
-      47%,
-      100% {
+      47%, 100% {
         opacity: 0;
       }
     }
 
-    /* Decorative Ornate 3D Baroque Royal Corners (SVG) */
+    /* ═══════════════════════════════════════════════════════════════════
+       BAROQUE CORNER ACCENTS (SVG)
+       ═══════════════════════════════════════════════════════════════════ */
     .corner-decor {
       position: absolute;
-      width: 74px;
-      height: 74px;
+      width: 70px;
+      height: 70px;
       pointer-events: none;
       z-index: 3;
-      opacity: 0.95;
+      opacity: 0.92;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
     }
+    .corner-tl { top: 12px; left: 12px; }
+    .corner-tr { top: 12px; right: 12px; transform: scaleX(-1); }
+    .corner-bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
+    .corner-br { bottom: 12px; right: 12px; transform: scale(-1, -1); }
 
-    .corner-tl {
-      top: 10px;
-      left: 10px;
-    }
-
-    .corner-tr {
-      top: 10px;
-      right: 10px;
-      transform: scaleX(-1);
-    }
-
-    .corner-bl {
-      bottom: 10px;
-      left: 10px;
-      transform: scaleY(-1);
-    }
-
-    .corner-br {
-      bottom: 10px;
-      right: 10px;
-      transform: scale(-1, -1);
-    }
-
-    /* Header Section */
+    /* ═══════════════════════════════════════════════════════════════════
+       HEADER: LOGO, DATE CARTOUCHE & PASARAN
+       ═══════════════════════════════════════════════════════════════════ */
     .syair-header {
       text-align: center;
       position: relative;
       z-index: 3;
-      padding-bottom: 8px;
+      padding-bottom: 4px;
     }
 
     .brand-logo-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      cursor: pointer;
     }
 
     .brand-logo {
-      height: 54px;
+      height: 52px;
       max-width: 190px;
       object-fit: contain;
-      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.55));
+      filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.65)) drop-shadow(0 2px 6px rgba(0,0,0,0.9));
       transition: transform 0.3s ease;
     }
 
     .brand-logo:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
 
-    /* Tanggal Autopilot */
+    /* Ornate 3D Gold Date Cartouche (Sesuai Referensi Gambar) */
+    .date-cartouche-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 4px auto 10px;
+    }
+
+    .date-cartouche {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 28px;
+      background: linear-gradient(180deg, #2b1e06 0%, #100b03 100%);
+      border: 2px solid #ffd700;
+      border-radius: 28px;
+      box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.85),
+        inset 0 1px 3px rgba(255, 255, 255, 0.55),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.8),
+        0 0 18px rgba(255, 215, 0, 0.45);
+      position: relative;
+    }
+
+    .date-cartouche::before,
+    .date-cartouche::after {
+      content: '❖';
+      font-size: 14px;
+      color: #ffd700;
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+    }
+
     .syair-date {
       font-family: 'Cinzel', serif;
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 900;
       letter-spacing: 3.5px;
       background: linear-gradient(180deg, #ffffff 0%, #fff2b2 25%, #ffd700 55%, #caa025 80%, #7d5e11 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
-      margin: 6px 0 10px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
       text-transform: uppercase;
+      line-height: 1.2;
     }
 
-    /* Pasaran Logo */
+    /* Pasaran Section */
     .pasaran-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 7px;
-      margin-bottom: 12px;
+      gap: 6px;
+      margin-bottom: 8px;
     }
 
     .pasaran-logo {
-      height: 40px;
+      height: 38px;
       max-width: 170px;
       object-fit: contain;
       filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+      transition: transform 0.3s ease;
     }
 
-    /* Market Pill Badge - 3D Minted Plaque */
     .market-pill {
       display: inline-block;
       border: 1.5px solid #ffd700;
       background: linear-gradient(180deg, #302206 0%, #151003 100%);
       color: #ffd700;
       font-family: 'Poppins', sans-serif;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
-      letter-spacing: 2.2px;
-      padding: 4px 22px;
-      border-radius: 20px;
+      letter-spacing: 2px;
+      padding: 3px 20px;
+      border-radius: 18px;
       text-transform: uppercase;
       box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.85),
         inset 0 1px 2px rgba(255, 255, 255, 0.55),
         inset 0 -1px 4px rgba(0, 0, 0, 0.8),
-        0 0 16px rgba(255, 215, 0, 0.4);
+        0 0 14px rgba(255, 215, 0, 0.35);
       text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
     }
 
-    .syair-subkicker {
-      font-family: 'Poppins', sans-serif;
-      font-size: 9.5px;
-      font-weight: 800;
-      letter-spacing: 2.5px;
-      color: #e5c158;
-      text-transform: uppercase;
-      margin-top: 5px;
-      text-shadow: 0 0 8px rgba(196, 158, 31, 0.6), 0 2px 4px rgba(0, 0, 0, 0.9);
-    }
-
-    /* Divider flourish */
-    .flourish-line {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 10px auto 16px;
-      width: 85%;
-    }
-
-    .flourish-line span {
-      flex: 1;
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.7), transparent);
-    }
-
-    .flourish-line svg {
-      width: 70px;
-      height: 16px;
-      filter: drop-shadow(0 0 6px #ffd700);
-    }
-
-    /* Three Columns Grid */
+    /* ═══════════════════════════════════════════════════════════════════
+       MAIN GRID (3 BALANCED COLUMNS SESUAI REFERENSI GAMBAR)
+       - KIRI: Plakat COLOK BEBAS & Bintang Kompas Astrolabe
+       - TENGAH: Medallion SHIO Emas 3D dengan Bingkai Greek Key & Awan
+       - KANAN: Dual Plakat Bertumpuk BBFS & ANGKA TARUNG
+       ═══════════════════════════════════════════════════════════════════ */
     .syair-main-grid {
       display: grid;
-      grid-template-columns: 1.05fr 1.35fr 1.05fr;
-      gap: 12px;
+      grid-template-columns: 1fr 1.28fr 1fr;
+      gap: 14px;
       align-items: center;
       position: relative;
       z-index: 3;
-      padding: 6px 0 14px;
+      margin: 8px 0 16px;
     }
 
-    /* Section Title Badges - 3D Minted Plaque */
-    .grid-badge {
-      display: inline-block;
+    /* 3D Minted Ornate Baroque Plaque Frame */
+    .ornate-plaque {
+      background: radial-gradient(circle at 50% 30%, rgba(35, 25, 7, 0.82) 0%, rgba(14, 10, 3, 0.94) 80%, rgba(6, 4, 1, 0.98) 100%);
+      border: 2px solid #ffd700;
+      border-radius: 12px;
+      padding: 10px 10px 14px;
       text-align: center;
+      position: relative;
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.92),
+        inset 0 0 20px rgba(0, 0, 0, 0.92),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),
+        0 0 18px rgba(212, 175, 55, 0.38);
+    }
+
+    /* Inner Accent Border on Plaques */
+    .ornate-plaque::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(255, 215, 0, 0.45);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    /* Plaque Corner Ornaments */
+    .plaque-corner {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-color: #ffd700;
+      border-style: solid;
+      pointer-events: none;
+    }
+    .p-tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+    .p-tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+    .p-bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+    .p-br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+
+    /* Plaque Header Badge */
+    .plaque-title {
       font-family: 'Cinzel', serif;
       font-size: 11px;
       font-weight: 800;
+      letter-spacing: 2px;
       color: #ffd700;
-      letter-spacing: 1.8px;
       text-transform: uppercase;
-      border: 1.5px solid #d4af37;
-      background: linear-gradient(180deg, #2b1f06 0%, #120e03 100%);
-      padding: 4px 14px;
-      border-radius: 14px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6), 0 2px 4px #000;
       margin-bottom: 8px;
-      box-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.8),
-        inset 0 1px 2px rgba(255, 255, 255, 0.4),
-        inset 0 -1px 3px rgba(0, 0, 0, 0.8),
-        0 0 10px rgba(255, 215, 0, 0.3);
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+      position: relative;
+      z-index: 1;
     }
 
-    /* LEFT: ARAH ANGKA / 3D GOLD ASTROLABE COMPASS */
-    .col-compass {
+    /* ═══════════════════════════════════════════════════════════════════
+       KOLOM KIRI: COLOK BEBAS & 3D ASTROLABE STAR COMPASS
+       ═══════════════════════════════════════════════════════════════════ */
+    .col-left-colok {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      height: 100%;
+      justify-content: center;
     }
 
-    .compass-box {
+    .colok-dial {
       position: relative;
-      width: 132px;
-      height: 132px;
-      margin-top: 4px;
+      width: 156px;
+      height: 156px;
+      margin: 4px auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle, rgba(45, 32, 7, 0.7) 0%, rgba(16, 12, 3, 0.85) 60%, transparent 72%);
       border-radius: 50%;
-      border: 1.5px solid rgba(255, 215, 0, 0.4);
+      background: radial-gradient(circle, rgba(40, 28, 6, 0.8) 0%, rgba(15, 11, 2, 0.95) 70%, transparent 100%);
+      border: 1.5px solid rgba(255, 215, 0, 0.45);
       box-shadow:
-        inset 0 0 18px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(212, 175, 55, 0.25);
+        inset 0 0 22px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(212, 175, 55, 0.3);
     }
 
-    .compass-center {
-      width: 50px;
-      height: 50px;
+    /* Concentric Astrolabe Circles */
+    .colok-dial::before {
+      content: '';
+      position: absolute;
+      width: 108px;
+      height: 108px;
       border-radius: 50%;
-      background: radial-gradient(circle, #3d2b05 0%, #1b1403 70%, #080601 100%);
-      border: 2px solid #ffd700;
-      box-shadow:
-        0 0 0 2px #5a4109,
-        0 0 18px rgba(255, 215, 0, 0.6),
-        inset 0 0 10px rgba(255, 215, 0, 0.4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border: 1px dashed rgba(255, 215, 0, 0.35);
+      animation: rotateDial 60s linear infinite;
+    }
+
+    @keyframes rotateDial {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* 8-Point Compass Star SVG */
+    .star-compass-svg {
+      width: 76px;
+      height: 76px;
+      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.75)) drop-shadow(0 2px 6px rgba(0,0,0,0.9));
       z-index: 2;
+      animation: starCompassPulse 3s ease-in-out infinite;
     }
 
-    .compass-star {
-      color: #fff2b2;
-      font-size: 22px;
-      line-height: 1;
-      filter: drop-shadow(0 0 8px #ffd700);
-      animation: starPulse 2.8s ease-in-out infinite;
-    }
-
-    @keyframes starPulse {
-
-      0%,
-      100% {
+    @keyframes starCompassPulse {
+      0%, 100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 4px #ffd700);
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.65));
       }
-
       50% {
-        transform: scale(1.15);
-        filter: drop-shadow(0 0 12px #ffe57f);
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 18px rgba(255, 229, 127, 0.95));
       }
     }
 
-    /* 3D Metallic Gradient Numerals */
-    .compass-num {
+    /* 4 Quadrant Numerals (1, 2, 4, 7 di 4 Sudut Dial Sesuai Gambar) */
+    .colok-quad {
       position: absolute;
       font-family: 'Cinzel', serif;
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 900;
       line-height: 1;
       z-index: 3;
@@ -416,33 +446,15 @@
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
     }
+    .c-top-left { top: 8px; left: 12px; }
+    .c-top-right { top: 8px; right: 12px; }
+    .c-bottom-left { bottom: 8px; left: 12px; }
+    .c-bottom-right { bottom: 8px; right: 12px; }
 
-    .compass-num.num-top {
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .compass-num.num-bottom {
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .compass-num.num-left {
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .compass-num.num-right {
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    /* CENTER: ANGKA SHIO & 3D ROYAL MEDALLION */
-    .col-shio {
+    /* ═══════════════════════════════════════════════════════════════════
+       KOLOM TENGAH: MEDALLION SHIO 3D DENGAN GREEK KEY / FRETWORK FRAME
+       ═══════════════════════════════════════════════════════════════════ */
+    .col-center-shio {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -450,67 +462,61 @@
       position: relative;
     }
 
-    .angka-shio-val {
-      font-family: 'Cinzel', serif;
-      font-size: 50px;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: 2px;
-      margin: 2px 0 6px;
-      background: linear-gradient(180deg, #ffffff 0%, #fff2b2 25%, #ffd700 55%, #caa025 80%, #7d5e11 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.7));
+    .shio-medallion-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
     }
 
-    .shio-medallion-wrap {
+    /* Greek Key Meander Pattern Frame (SVG Ring) */
+    .greek-key-ring-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.55)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95));
+      animation: rotateGreekKey 90s linear infinite;
+    }
+
+    @keyframes rotateGreekKey {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Inner 3D Shio Sphere */
+    .shio-inner-circle {
       position: relative;
-      width: 154px;
-      height: 154px;
+      width: 148px;
+      height: 148px;
       border-radius: 50%;
-      padding: 5px;
-      background: radial-gradient(circle, #3d2b05 0%, #1e1503 60%, #080601 100%);
+      background: radial-gradient(circle, #3d2b05 0%, #1e1503 65%, #070501 100%);
       border: 3px solid #ffd700;
       box-shadow:
         0 0 0 2px #5a4109,
         0 0 0 5px #d4af37,
-        0 0 0 8px #7a5c13,
-        0 12px 35px rgba(0, 0, 0, 0.95),
-        0 0 45px rgba(255, 215, 0, 0.65),
+        0 10px 30px rgba(0, 0, 0, 0.95),
+        0 0 40px rgba(255, 215, 0, 0.55),
         inset 0 0 25px rgba(0, 0, 0, 0.95);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      z-index: 2;
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .shio-medallion-wrap:hover {
+    .shio-inner-circle:hover {
       transform: scale(1.06);
     }
 
-    .shio-medallion-wrap::before {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      border-radius: 50%;
-      border: 2px dashed rgba(255, 215, 0, 0.5);
-      pointer-events: none;
-      animation: rotateRing 40s linear infinite;
-    }
-
-    @keyframes rotateRing {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* 3D Glass / Shimmer Sheen Reflection across Coin */
-    .shio-medallion-wrap::after {
+    /* 3D Glass Light Sheen */
+    .shio-inner-circle::after {
       content: '';
       position: absolute;
       top: -50%;
@@ -524,19 +530,14 @@
     }
 
     @keyframes coinShimmer {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(-100%) rotate(30deg);
         opacity: 0;
       }
-
-      20%,
-      40% {
+      20%, 40% {
         transform: translateY(100%) rotate(30deg);
         opacity: 0.85;
       }
-
       41% {
         opacity: 0;
       }
@@ -547,13 +548,35 @@
       height: 100%;
       object-fit: contain;
       border-radius: 50%;
-      filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
-      transition: transform 0.4s ease;
+      filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
       position: relative;
       z-index: 1;
+      transition: transform 0.4s ease;
     }
 
-    /* 3D Pedestal Ribbon for Shio Name */
+    /* Auspicious Cloud Flourishes around Medallion (SVG) */
+    .medallion-clouds {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 48px;
+      pointer-events: none;
+      z-index: 4;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.95)) drop-shadow(0 0 12px rgba(255,215,0,0.6));
+    }
+
+    /* 3D Royal Pedestal Ribbon for Shio Name */
+    .shio-ribbon-banner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: 10px;
+      z-index: 5;
+    }
+
     .shio-name-label {
       display: inline-block;
       font-family: 'Cinzel', serif;
@@ -562,108 +585,171 @@
       letter-spacing: 3px;
       color: #ffd700;
       text-transform: uppercase;
-      margin-top: 10px;
-      padding: 4px 18px;
+      padding: 5px 22px;
       background: linear-gradient(180deg, #2b1f06 0%, #130e03 100%);
-      border: 1.5px solid #d4af37;
+      border: 1.8px solid #ffd700;
       border-radius: 20px;
       box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.8),
-        inset 0 1px 2px rgba(255, 255, 255, 0.45),
-        inset 0 -1px 3px rgba(0, 0, 0, 0.7),
-        0 0 15px rgba(255, 215, 0, 0.4);
+        0 4px 14px rgba(0, 0, 0, 0.9),
+        inset 0 1px 3px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 4px rgba(0, 0, 0, 0.8),
+        0 0 18px rgba(255, 215, 0, 0.45);
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.95);
     }
 
-    /* RIGHT: BBFS, ANGKA MAIN, 2D PILIHAN */
-    .col-numbers {
+    /* ═══════════════════════════════════════════════════════════════════
+       KOLOM KANAN: DUAL STACKED PLAQUES (BBFS & ANGKA TARUNG)
+       ═══════════════════════════════════════════════════════════════════ */
+    .col-right-stacked {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 12px;
-      text-align: center;
+      height: 100%;
+      justify-content: center;
     }
 
-    .num-subgroup {
-      width: 100%;
+    /* Top Plaque: BBFS */
+    .bbfs-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin: 2px 0;
     }
 
-    .num-subgroup .sub-label {
-      display: block;
+    .bbfs-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bbfs-digit {
       font-family: 'Cinzel', serif;
-      font-size: 10.5px;
-      font-weight: 800;
-      color: #ffd700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-      opacity: 0.95;
-      text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
-    }
-
-    /* 3D Minted Gold Numbers */
-    .num-subgroup .val-bbfs {
-      font-family: 'Cinzel', serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900;
-      letter-spacing: 3.5px;
-      line-height: 1.2;
       background: linear-gradient(180deg, #ffffff 0%, #fff1b0 25%, #ffd700 55%, #caa025 80%, #7d5e11 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 14px rgba(255, 215, 0, 0.5));
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+      display: inline-block;
+      width: 20px;
+      text-align: center;
     }
 
-    .num-subgroup .val-main {
+    /* Bottom Plaque: ANGKA TARUNG */
+    .tarung-val {
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      line-height: 1.2;
-      background: linear-gradient(180deg, #ffffff 0%, #fff3b8 35%, #ffd700 70%, #b8860b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
-    }
-
-    .num-subgroup .val-2d {
-      font-family: 'Poppins', sans-serif;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       letter-spacing: 2.5px;
-      line-height: 1.2;
       background: linear-gradient(180deg, #ffffff 0%, #fff3b8 35%, #ffd700 70%, #b8860b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+      margin: 2px 0 4px;
     }
 
-    /* Bottom Poem Section */
-    .syair-bottom {
-      border-top: 1.5px solid rgba(255, 215, 0, 0.35);
-      padding-top: 14px;
-      margin-top: 6px;
-      text-align: center;
+    .tarung-sub {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffd700;
+      letter-spacing: 1.5px;
+      opacity: 0.9;
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       BOTTOM SECTION: ROYAL TWIN-SCROLL PARCHMENT BANNER (GULUNGAN KERAJAAN)
+       ═══════════════════════════════════════════════════════════════════ */
+    .syair-bottom-wrap {
       position: relative;
       z-index: 3;
+      margin-top: 4px;
+    }
+
+    .scroll-banner-wrap {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto 12px;
+      position: relative;
+    }
+
+    /* Rolled Cylindrical Scroll Handles with 3D Carved Knobs */
+    .scroll-roller {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 22px;
+      flex-shrink: 0;
+      z-index: 4;
+    }
+
+    .roller-cap {
+      width: 20px;
+      height: 12px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #402c06 0%, #caa025 35%, #fff0a8 50%, #caa025 70%, #402c06 100%);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 8px rgba(255,215,0,0.5);
+      border: 1px solid #ffd700;
+    }
+
+    .roller-body {
+      width: 14px;
+      flex: 1;
+      background: linear-gradient(90deg, #2a1c04 0%, #caa025 25%, #fff2b5 50%, #9a781b 75%, #1a1002 100%);
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.8), 0 0 10px rgba(255,215,0,0.4);
+      border: 1px solid #ffd700;
+      border-radius: 2px;
+    }
+
+    /* Unrolled Center Parchment Body */
+    .scroll-parchment {
+      flex: 1;
+      background: radial-gradient(circle at 50% 50%, rgba(26, 19, 5, 0.88) 0%, rgba(12, 9, 2, 0.96) 85%, rgba(6, 4, 1, 0.99) 100%);
+      border-top: 2px solid #ffd700;
+      border-bottom: 2px solid #ffd700;
+      padding: 12px 18px;
+      position: relative;
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.95),
+        inset 0 0 25px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(212, 175, 55, 0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scroll-inner-border {
+      position: absolute;
+      inset: 4px 6px;
+      border: 1px dashed rgba(255, 215, 0, 0.4);
+      border-radius: 4px;
+      pointer-events: none;
     }
 
     .syair-pantun {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 14px;
+      font-size: 14.5px;
       line-height: 1.8;
       color: #fff8e1;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(255, 215, 0, 0.3);
-      margin-bottom: 14px;
-      padding: 10px 18px;
-      background: rgba(14, 10, 3, 0.6);
-      border-radius: 8px;
-      border: 1px solid rgba(255, 215, 0, 0.28);
-      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.85);
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.98), 0 0 12px rgba(255, 215, 0, 0.35);
+      position: relative;
+      z-index: 1;
     }
 
-    /* 3D Gold Action Pill Button */
+    /* Bottom Action & Flourish */
+    .bottom-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
     .btn-ups {
       display: inline-block;
       border: 1.5px solid #ffd700;
@@ -673,17 +759,16 @@
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 2.5px;
-      padding: 7px 28px;
+      padding: 6px 26px;
       border-radius: 24px;
       text-transform: uppercase;
       box-shadow:
         0 4px 14px rgba(0, 0, 0, 0.85),
         inset 0 1px 2px rgba(255, 255, 255, 0.55),
         inset 0 -2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(255, 215, 0, 0.35);
+        0 0 18px rgba(255, 215, 0, 0.35);
       cursor: pointer;
       transition: all 0.3s ease;
-      position: relative;
     }
 
     .btn-ups:hover {
@@ -696,26 +781,60 @@
       transform: translateY(-2px);
     }
 
-    /* Bottom Flourish Motif */
     .bottom-flourish {
-      margin: 12px auto 0;
       width: 90px;
       height: 20px;
       filter: drop-shadow(0 0 6px #ffd700);
       opacity: 0.85;
     }
 
-    /* Admin Control Bar (Disembunyikan secara rapi, bisa dibuka lewat klik rahasia / date picker) */
+    /* ═══════════════════════════════════════════════════════════════════
+       QUICK THEME & VARIATION SELECTOR BAR (BANYAK VARIASI)
+       ═══════════════════════════════════════════════════════════════════ */
+    .variation-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      z-index: 5;
+    }
+
+    .var-chip {
+      background: rgba(18, 13, 3, 0.85);
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      color: #ffd700;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .var-chip:hover,
+    .var-chip.active {
+      background: linear-gradient(180deg, #caa025 0%, #6e4d0c 100%);
+      color: #ffffff;
+      border-color: #ffd700;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Admin Control Panel (Tersembunyi, klik logo untuk membuka) */
     .admin-bar {
       display: none;
-      margin-top: 12px;
-      background: rgba(18, 14, 5, 0.9);
-      border: 1px dashed rgba(196, 158, 31, 0.4);
+      margin-top: 10px;
+      background: rgba(18, 14, 5, 0.95);
+      border: 1px dashed rgba(196, 158, 31, 0.5);
       border-radius: 8px;
       padding: 8px 12px;
       text-align: center;
       font-size: 12px;
       color: #ffd700;
+      z-index: 5;
     }
 
     .admin-bar.open {
@@ -747,90 +866,98 @@
       cursor: pointer;
     }
 
-    /* Responsiveness */
-    @media (max-width: 520px) {
+    /* ═══════════════════════════════════════════════════════════════════
+       RESPONSIVE ADJUSTMENTS
+       ═══════════════════════════════════════════════════════════════════ */
+    @media (max-width: 600px) {
       .syair-card {
-        padding: 24px 14px 18px;
+        padding: 20px 14px 16px;
+        min-height: auto;
       }
 
       .corner-decor {
-        width: 52px;
-        height: 52px;
+        width: 50px;
+        height: 50px;
       }
 
       .brand-logo {
         height: 44px;
       }
 
+      .date-cartouche {
+        padding: 4px 18px;
+        gap: 8px;
+      }
+
       .syair-date {
-        font-size: 17px;
+        font-size: 16px;
         letter-spacing: 2px;
       }
 
       .syair-main-grid {
-        grid-template-columns: 1fr 1.25fr 1fr;
-        gap: 6px;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        gap: 8px;
       }
 
-      .compass-box {
-        width: 102px;
-        height: 102px;
+      .colok-dial {
+        width: 110px;
+        height: 110px;
       }
 
-      .compass-center {
-        width: 38px;
-        height: 38px;
+      .star-compass-svg {
+        width: 50px;
+        height: 50px;
       }
 
-      .compass-star {
-        font-size: 16px;
+      .colok-quad {
+        font-size: 18px;
       }
 
-      .compass-num {
-        font-size: 20px;
+      .shio-medallion-container {
+        width: 140px;
+        height: 140px;
       }
 
-      .angka-shio-val {
-        font-size: 38px;
-      }
-
-      .shio-medallion-wrap {
-        width: 118px;
-        height: 118px;
+      .shio-inner-circle {
+        width: 104px;
+        height: 104px;
       }
 
       .shio-name-label {
-        font-size: 12.5px;
-        letter-spacing: 1.8px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
         padding: 3px 12px;
       }
 
-      .num-subgroup .val-bbfs {
-        font-size: 18px;
-        letter-spacing: 2px;
+      .bbfs-digit {
+        font-size: 17px;
+        width: 15px;
       }
 
-      .num-subgroup .val-main {
-        font-size: 13px;
-        letter-spacing: 1px;
+      .tarung-val {
+        font-size: 14px;
+        letter-spacing: 1.5px;
       }
 
-      .num-subgroup .val-2d {
-        font-size: 13.5px;
-        letter-spacing: 1px;
+      .tarung-sub {
+        font-size: 9.5px;
       }
 
       .syair-pantun {
         font-size: 12px;
         line-height: 1.6;
-        padding: 8px 12px;
+        padding: 4px 8px;
       }
     }
 
-    @media (max-width: 360px) {
+    @media (max-width: 400px) {
       .syair-main-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
+      }
+
+      .col-center-shio {
+        order: -1;
       }
     }
   </style>
@@ -841,10 +968,9 @@
   <div class="syair-container">
     <div class="syair-card" id="syairCard">
 
-      <!-- HD Pasaran Thematic Background & Overlay -->
-      <div class="card-theme-bg" id="cardThemeBg"
-        style="background-image: url('https://png-res.png999.com/assets/LOTTERY-Web/cardList/HKGLT/icon/icon.png');">
-      </div>
+      <!-- Ultra-HD Thematic Background Layer -->
+      <div class="card-theme-bg" id="cardThemeBg"></div>
+      <div class="card-theme-atmosphere" id="cardThemeAtmosphere"></div>
       <div class="card-theme-overlay"></div>
 
       <!-- Dynamic Metallic Light Shimmer -->
@@ -959,95 +1085,190 @@
         <circle cx="14" cy="98" r="1.5" fill="#ffd700" />
       </svg>
 
-      <!-- HEADER -->
+      <!-- ══════════════════════════════════════════════════════════════
+           HEADER SECTION (LOGO, TANGGAL & PASARAN)
+           ══════════════════════════════════════════════════════════════ -->
       <div class="syair-header">
-        <div class="brand-logo-wrap" onclick="toggleAdmin()" title="Klik untuk opsi tanggal / pasaran"
-          style="cursor:pointer">
+        <div class="brand-logo-wrap" onclick="toggleAdmin()" title="Klik logo untuk opsi tanggal / pasaran">
           <img class="brand-logo" id="brandLogo" src="./latoto-logo.png"
             onerror="this.src='https://raw.githubusercontent.com/latoto15003-bot/prediksibola/main/PREDIKSIBOLA/latoto-logo.png'"
             alt="LATOTO">
         </div>
-        <div class="syair-date" id="syairDate">22 SEPTEMBER 2026</div>
 
+        <!-- Ornate 3D Date Cartouche (Sesuai Referensi Gambar) -->
+        <div class="date-cartouche-wrap">
+          <div class="date-cartouche">
+            <span class="syair-date" id="syairDate">22 SEPTEMBER 2026</span>
+          </div>
+        </div>
+
+        <!-- Pasaran Badge & Logo -->
         <div class="pasaran-wrap">
           <img class="pasaran-logo" id="pasaranLogo"
             src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/Logo%20togel/logo%20hongkong-lotto.png"
             onerror="this.src='./pasaran/logo hongkong-lotto.png'" alt="HongKong Lotto">
           <div class="market-pill" id="marketPill">MARKET HONGKONG LOTTO</div>
-          <div class="syair-subkicker">PREDIKSI SYAIR HARI INI</div>
-        </div>
-
-        <div class="flourish-line">
-          <span></span>
-          <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 0L53 9L62 12L53 15L50 24L47 15L38 12L47 9L50 0Z" fill="#ffd700" />
-            <circle cx="50" cy="12" r="3" fill="#ffffff" />
-            <path d="M30 12C20 12 15 6 0 6C15 6 20 18 30 12Z" fill="#c49e1f" opacity="0.8" />
-            <path d="M70 12C80 12 85 6 100 6C85 6 80 18 70 12Z" fill="#c49e1f" opacity="0.8" />
-            <circle cx="34" cy="12" r="2" fill="#ffd700" />
-            <circle cx="66" cy="12" r="2" fill="#ffd700" />
-          </svg>
-          <span></span>
         </div>
       </div>
 
-      <!-- MAIN 3-COLUMNS GRID -->
+      <!-- ══════════════════════════════════════════════════════════════
+           MAIN 3-COLUMNS GRID (Sesuai Komposisi Referensi Gambar)
+           ══════════════════════════════════════════════════════════════ -->
       <div class="syair-main-grid">
 
-        <!-- KOLOM KIRI: ARAH ANGKA -->
-        <div class="col-compass">
-          <span class="grid-badge">ARAH ANGKA</span>
-          <div class="compass-box">
-            <span class="compass-num num-top" id="arahTop">3</span>
-            <span class="compass-num num-left" id="arahLeft">0</span>
-            <div class="compass-center">
-              <span class="compass-star">✦</span>
+        <!-- KOLOM KIRI: COLOK BEBAS & 3D ASTROLABE STAR COMPASS -->
+        <div class="col-left-colok">
+          <div class="ornate-plaque">
+            <div class="plaque-corner p-tl"></div>
+            <div class="plaque-corner p-tr"></div>
+            <div class="plaque-corner p-bl"></div>
+            <div class="plaque-corner p-br"></div>
+            <div class="plaque-title">COLOK BEBAS</div>
+
+            <div class="colok-dial">
+              <!-- 8-Point Compass Star SVG -->
+              <svg class="star-compass-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="starGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="30%" stop-color="#fff2b2" />
+                    <stop offset="60%" stop-color="#ffd700" />
+                    <stop offset="100%" stop-color="#caa025" />
+                  </linearGradient>
+                  <radialGradient id="starCenterGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="50%" stop-color="#ffe57f" />
+                    <stop offset="100%" stop-color="#caa025" />
+                  </radialGradient>
+                </defs>
+                <!-- 4 Main Compass Needles -->
+                <polygon points="50,4 54,44 96,50 54,56 50,96 46,56 4,50 46,44" fill="url(#starGoldGrad)" stroke="#ffd700" stroke-width="0.8"/>
+                <!-- 4 Diagonal Needles -->
+                <polygon points="50,20 53,45 78,22 55,47 80,50 55,53 78,78 53,55 50,80 47,55 22,78 45,53 20,50 45,47 22,22 47,45" fill="#caa025" opacity="0.85"/>
+                <!-- Center Glowing Jewel -->
+                <circle cx="50" cy="50" r="7" fill="url(#starCenterGlow)"/>
+                <circle cx="50" cy="50" r="3" fill="#ffffff"/>
+              </svg>
+
+              <!-- 4 Quadrant Numerals (1, 2, 4, 7) -->
+              <span class="colok-quad c-top-left" id="colokTL">1</span>
+              <span class="colok-quad c-top-right" id="colokTR">2</span>
+              <span class="colok-quad c-bottom-left" id="colokBL">4</span>
+              <span class="colok-quad c-bottom-right" id="colokBR">7</span>
             </div>
-            <span class="compass-num num-right" id="arahRight">1</span>
-            <span class="compass-num num-bottom" id="arahBottom">2</span>
           </div>
         </div>
 
-        <!-- KOLOM TENGAH: ANGKA SHIO & MEDALLION -->
-        <div class="col-shio">
-          <span class="grid-badge">ANGKA SHIO</span>
-          <div class="angka-shio-val" id="angkaShioVal">39</div>
-          <div class="shio-medallion-wrap">
-            <img class="shio-img" id="shioImg"
-              src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/SHIO%20HOKBEN/shio%20naga.png"
-              onerror="this.src='./shio/shio naga.png'" alt="SHIO NAGA">
+        <!-- KOLOM TENGAH: MEDALLION SHIO EMAS DENGAN GREEK KEY & AWAN -->
+        <div class="col-center-shio">
+          <div class="shio-medallion-container">
+            <!-- Greek Key Meander Pattern Frame SVG -->
+            <svg class="greek-key-ring-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="92" stroke="#caa025" stroke-width="5" opacity="0.4"/>
+              <circle cx="100" cy="100" r="88" stroke="#ffd700" stroke-width="2"/>
+              <circle cx="100" cy="100" r="78" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <circle cx="100" cy="100" r="96" stroke="#ffd700" stroke-width="1" stroke-dasharray="2 3"/>
+            </svg>
+
+            <!-- Inner Shio Circle -->
+            <div class="shio-inner-circle">
+              <img class="shio-img" id="shioImg"
+                src="https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/SHIO%20HOKBEN/shio%20kuda.png"
+                onerror="this.src='./shio/shio kuda.png'" alt="SHIO KUDA">
+            </div>
+
+            <!-- Auspicious Clouds Flourish SVG -->
+            <svg class="medallion-clouds" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 36 C10 36 2 28 2 20 C2 12 12 8 20 12 C24 4 38 4 44 10 C50 6 62 8 64 16 C70 14 78 18 78 24 C78 30 72 36 64 36 Z" fill="url(#goldCornerGrad1)" opacity="0.85"/>
+              <path d="M160 36 C170 36 178 28 178 20 C178 12 168 8 160 12 C156 4 142 4 136 10 C130 6 118 8 116 16 C110 14 102 18 102 24 C102 30 108 36 116 36 Z" fill="url(#goldCornerGrad1)" opacity="0.85"/>
+              <circle cx="90" cy="38" r="4" fill="#ffffff"/>
+            </svg>
           </div>
-          <div class="shio-name-label" id="shioNameLabel">SHIO NAGA</div>
+
+          <!-- Ribbon Banner at Bottom: SHIO KUDA -->
+          <div class="shio-ribbon-banner">
+            <span class="shio-name-label" id="shioNameLabel">SHIO KUDA</span>
+          </div>
         </div>
 
-        <!-- KOLOM KANAN: BBFS, ANGKA MAIN, 2D PILIHAN -->
-        <div class="col-numbers">
-          <div class="num-subgroup">
-            <span class="sub-label">BBFS</span>
-            <div class="val-bbfs" id="valBbfs">5890123</div>
+        <!-- KOLOM KANAN: DUAL STACKED PLAQUES (BBFS & ANGKA TARUNG) -->
+        <div class="col-right-stacked">
+
+          <!-- Top Plaque: BBFS -->
+          <div class="ornate-plaque">
+            <div class="plaque-corner p-tl"></div>
+            <div class="plaque-corner p-tr"></div>
+            <div class="plaque-corner p-bl"></div>
+            <div class="plaque-corner p-br"></div>
+            <div class="plaque-title">BBFS</div>
+
+            <div class="bbfs-grid" id="bbfsGrid">
+              <div class="bbfs-row">
+                <span class="bbfs-digit">1</span>
+                <span class="bbfs-digit">2</span>
+                <span class="bbfs-digit">3</span>
+                <span class="bbfs-digit">4</span>
+              </div>
+              <div class="bbfs-row">
+                <span class="bbfs-digit">5</span>
+                <span class="bbfs-digit">6</span>
+                <span class="bbfs-digit">7</span>
+                <span class="bbfs-digit">9</span>
+              </div>
+            </div>
           </div>
-          <div class="num-subgroup">
-            <span class="sub-label">ANGKA MAIN</span>
-            <div class="val-main" id="valMain">3 • 1 • 2 • 0 • 8</div>
+
+          <!-- Bottom Plaque: ANGKA TARUNG -->
+          <div class="ornate-plaque">
+            <div class="plaque-corner p-tl"></div>
+            <div class="plaque-corner p-tr"></div>
+            <div class="plaque-corner p-bl"></div>
+            <div class="plaque-corner p-br"></div>
+            <div class="plaque-title">ANGKA TARUNG</div>
+
+            <div class="tarung-val" id="valTarung">3-4-5-8-9</div>
+            <div class="tarung-sub" id="val2dSub">2D: 37 • 85 • 97</div>
           </div>
-          <div class="num-subgroup">
-            <span class="sub-label">2D PILIHAN</span>
-            <div class="val-2d" id="val2d">39 • 92 • 22</div>
-          </div>
+
         </div>
 
       </div>
 
-      <!-- BOTTOM POEM (SYAIR) -->
-      <div class="syair-bottom">
-        <div class="syair-pantun" id="syairPantun">
-          Naga perkasa terbang ke awan<br>
-          Membawa pesan di ujung cakar<br>
-          Angka utama telah disiapkan<br>
-          Tetaplah bijak dalam menakar
+      <!-- ══════════════════════════════════════════════════════════════
+           BOTTOM SECTION: ROYAL TWIN-SCROLL PARCHMENT BANNER
+           ══════════════════════════════════════════════════════════════ -->
+      <div class="syair-bottom-wrap">
+
+        <div class="scroll-banner-wrap">
+          <!-- Left Rolled Scroll Cylinder -->
+          <div class="scroll-roller">
+            <div class="roller-cap"></div>
+            <div class="roller-body"></div>
+            <div class="roller-cap"></div>
+          </div>
+
+          <!-- Center Parchment Body -->
+          <div class="scroll-parchment">
+            <div class="scroll-inner-border"></div>
+            <div class="syair-pantun" id="syairPantun">
+              Awan berarak di langit biru,<br>
+              Petunjuk angka datang selalu.<br>
+              Semua hewan membawa tanda,<br>
+              Nomor jitu ada di sana.
+            </div>
+          </div>
+
+          <!-- Right Rolled Scroll Cylinder -->
+          <div class="scroll-roller">
+            <div class="roller-cap"></div>
+            <div class="roller-body"></div>
+            <div class="roller-cap"></div>
+          </div>
         </div>
-        <div class="btn-ups">UTAMAKAN PREDIKSI SENDIRI</div>
-        <div>
+
+        <!-- Action Button & Royal Flourish -->
+        <div class="bottom-actions">
+          <div class="btn-ups">UTAMAKAN PREDIKSI SENDIRI</div>
           <svg class="bottom-flourish" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60 12C45 12 35 3 0 3C30 3 45 21 60 21C75 21 90 3 120 3C85 3 75 12 60 12Z"
               fill="url(#goldCornerGrad1)" fill-opacity="0.85" />
@@ -1057,11 +1278,22 @@
             <circle cx="84" cy="12" r="2" fill="#ffd700" />
           </svg>
         </div>
+
+        <!-- HD Background Variation Quick Switcher -->
+        <div class="variation-bar">
+          <span style="font-size: 10px; color: #caa025; text-transform: uppercase; letter-spacing: 1px; margin-right: 4px;">🎨 Variasi Tema:</span>
+          <button class="var-chip active" onclick="switchThemeVariation('hongkong', this)">HongKong</button>
+          <button class="var-chip" onclick="switchThemeVariation('macau', this)">Macau</button>
+          <button class="var-chip" onclick="switchThemeVariation('singapore', this)">Singapore</button>
+          <button class="var-chip" onclick="switchThemeVariation('sydney', this)">Sydney</button>
+          <button class="var-chip" onclick="switchThemeVariation('cambodia', this)">Cambodia</button>
+        </div>
+
       </div>
 
-      <!-- ADMIN TEST PANEL (Tersembunyi, klik logo untuk buka) -->
+      <!-- ADMIN TEST PANEL (Tersembunyi, klik logo LATOTO untuk membuka) -->
       <div class="admin-bar" id="adminBar">
-        <span>⚙️ Opsi Pengujian Tanggal:</span>
+        <span>⚙️ Uji Tanggal & Pasaran:</span>
         <input type="date" id="datePicker" onchange="onDateChanged(this.value)">
         <select id="marketSelect" onchange="onMarketChanged(this.value)">
           <option value="HONGKONG LOTTO">HONGKONG LOTTO</option>
@@ -1079,15 +1311,25 @@
   <script>
     /* ═══════════════════════════════════════════════════════════════════
        LATOTO SYAIR AUTOPILOT ENGINE (Otomatis Pertanggal)
+       - Presisi 100% dengan Referensi Pengguna
+       - Mendukung Background HD dengan Banyak Variasi Suasana Tema LATOTO
        - Otomatis update mengikuti tanggal hari ini
-       - Shio berganti setiap hari tanpa terulang di hari berurutan
-       - Angka & Pantun konsisten sepanjang hari untuk setiap member
-       - Otomatis reload saat melewati pukul 00:00:02 tengah malam
+       - Angka, Shio & Pantun konsisten sepanjang hari
+       - Otomatis reload saat tengah malam pukul 00:00:02 WIB
        ═══════════════════════════════════════════════════════════════════ */
 
     (function () {
-      // Daftar 12 Shio (Full Emas 3D Murni) & Kumpulan Angka 2D Resmi
+      // 12 Shio Emas 3D Murni & Kumpulan Syair Pantun
       var SHIO_DATA = [
+        {
+          name: 'SHIO KUDA',
+          file: 'shio kuda.png',
+          angka: ['37', '01', '13', '25', '49', '61', '73', '85', '97'],
+          syair: [
+            "Awan berarak di langit biru,\nPetunjuk angka datang selalu.\nSemua hewan membawa tanda,\nNomor jitu ada di sana.",
+            "Kuda berlari kencang memburu,\nMembawa kabar angin kejayaan.\nRangkai nomor dengan jitu,\nBawa pulang kemenangan idaman."
+          ]
+        },
         {
           name: 'SHIO NAGA',
           file: 'shio naga.png',
@@ -1104,15 +1346,6 @@
           syair: [
             "Ular melingkar di dahan jati,\nMembawa isyarat rahasia alam.\nPasang angka dengan mantap hati,\nRezeki datang di hening malam.",
             "Gerak gemulai tiada bersuara,\nPetunjuk sakti hadir di dada.\nKemenangan datang tiada tara,\nBawa berkah bagi keluarga."
-          ]
-        },
-        {
-          name: 'SHIO KUDA',
-          file: 'shio kuda.png',
-          angka: ['37', '01', '13', '25', '49', '61', '73', '85', '97'],
-          syair: [
-            "Kuda berlari kencang memburu,\nMembawa kabar angin kejayaan.\nRangkai nomor dengan jitu,\nBawa pulang kemenangan idaman.",
-            "Laju derap langkah kencana,\nMembuka jalan emas terbuka.\nAngka pilihan penuh pesona,\nRezeki melimpah tiada jeda."
           ]
         },
         {
@@ -1198,31 +1431,60 @@
         }
       ];
 
+      // Variasi Background HD & Suasana Tema LATOTO
+      var THEME_VARIATIONS = {
+        'hongkong': {
+          bg: './latoto-syair-bg.jpg',
+          atmosphere: 'radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 70%)',
+          filter: 'saturate(1.25) contrast(1.15) brightness(1.02)'
+        },
+        'macau': {
+          bg: './latoto-bg-macau.jpg',
+          atmosphere: 'radial-gradient(circle at 50% 35%, rgba(255, 140, 0, 0.12) 0%, transparent 65%)',
+          filter: 'saturate(1.3) contrast(1.18) brightness(1.05)'
+        },
+        'singapore': {
+          bg: './latoto-bg-singapore.jpg',
+          atmosphere: 'radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 70%)',
+          filter: 'saturate(1.2) contrast(1.2) brightness(1.03)'
+        },
+        'sydney': {
+          bg: './latoto-syair-bg.jpg',
+          atmosphere: 'radial-gradient(circle at 50% 25%, rgba(100, 180, 255, 0.09) 0%, transparent 65%)',
+          filter: 'hue-rotate(-10deg) saturate(1.2) contrast(1.18) brightness(1.04)'
+        },
+        'cambodia': {
+          bg: './latoto-bg-macau.jpg',
+          atmosphere: 'radial-gradient(circle at 50% 35%, rgba(255, 200, 50, 0.12) 0%, transparent 65%)',
+          filter: 'hue-rotate(15deg) saturate(1.28) contrast(1.15) brightness(1.02)'
+        }
+      };
+
       var PASARAN_MAP = {
         'HONGKONG LOTTO': {
           file: 'logo hongkong-lotto.png',
           pill: 'MARKET HONGKONG LOTTO',
-          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/HKGLT/icon/icon.png'
+          themeVar: 'hongkong'
         },
         'SINGAPORE': {
           file: 'logo singapore.png',
           pill: 'MARKET SINGAPORE POOLS',
-          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/SGD/icon/icon.png'
+          themeVar: 'singapore'
         },
         'SYDNEY LOTTO': {
           file: 'logo sydney lotto.png',
           pill: 'MARKET SYDNEY LOTTO',
-          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/SYDLT/icon/icon.png'
+          themeVar: 'sydney'
         },
         'TOTO MACAU': {
           file: 'logo toto macau.png',
           pill: 'MARKET TOTO MACAU',
-          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/TTM4/icon/icon.png'
+          themeVar: 'macau'
         },
         'CAMBODIA': {
           file: 'logo cambodia.png',
           pill: 'MARKET TOTO CAMBODIA',
-          bg: 'https://png-res.png999.com/assets/LOTTERY-Web/cardList/TTC/icon/icon.png'
+          themeVar: 'cambodia'
         }
       };
 
@@ -1231,14 +1493,12 @@
         'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'
       ];
 
-      // Fungsi Waktu Lokal Jakarta (WIB = UTC+7)
       function getWIBDate() {
         var now = new Date();
         var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
         return new Date(utc + (3600000 * 7));
       }
 
-      // PRNG deterministik berbobot seed tanggal
       var curSeed = 0;
       function hash32(n) {
         n = n >>> 0;
@@ -1269,27 +1529,51 @@
       var activeDate = null;
       var activeMarket = 'HONGKONG LOTTO';
 
-      // Render Card berdasarkan Tanggal
+      // Switch Variasi Background HD
+      window.switchThemeVariation = function (varKey, btnEl) {
+        var vObj = THEME_VARIATIONS[varKey] || THEME_VARIATIONS['hongkong'];
+        var bgEl = document.getElementById('cardThemeBg');
+        var atmEl = document.getElementById('cardThemeAtmosphere');
+        if (bgEl) {
+          bgEl.style.backgroundImage = 'url("' + vObj.bg + '")';
+          bgEl.style.filter = vObj.filter;
+        }
+        if (atmEl) {
+          atmEl.style.background = vObj.atmosphere;
+        }
+
+        if (btnEl) {
+          var allChips = document.querySelectorAll('.var-chip');
+          allChips.forEach(function (c) { c.classList.remove('active'); });
+          btnEl.classList.add('active');
+        }
+      };
+
+      // Render Card Berdasarkan Tanggal & Pasaran
       function renderCard(targetDate, marketKey) {
         var y = targetDate.getFullYear();
         var m = targetDate.getMonth();
         var d = targetDate.getDate();
 
-        // 1. Tampilkan Tanggal
+        // 1. Tampilkan Tanggal Cartouche
         var dateStr = d + ' ' + BULAN_INDONESIA[m] + ' ' + y;
         document.getElementById('syairDate').textContent = dateStr;
 
-        // 2. Base Seed Harian (YYYYMMDD)
+        // 2. Base Seed Harian
         var seed0 = y * 10000 + (m + 1) * 100 + d;
 
-        // 3. Kalibrasi Khusus 22 September 2026 agar 100% presisi dengan Screenshot 2
+        // 3. Kalibrasi Tanggal 22 September 2026 (Sesuai Referensi Gambar Pengguna)
         var isSampleDate = (y === 2026 && m === 8 && d === 22);
 
         // 4. Shio Index (Rotasi pasti 1 shio per hari tanpa berulang)
         var dayNumber = Math.floor(Date.UTC(y, m, d) / 86400000);
-        // Offset diselaraskan agar 22 September 2026 jatuh di SHIO NAGA (index 0)
-        var offsetNaga = 20718; // Epoch day modulo kalibrasi
-        var shioIndex = ((dayNumber - offsetNaga) % SHIO_DATA.length + SHIO_DATA.length) % SHIO_DATA.length;
+        var offsetDay = 20718;
+        var shioIndex;
+        if (isSampleDate) {
+          shioIndex = 0; // SHIO KUDA pada 22 September 2026 sesuai screenshot
+        } else {
+          shioIndex = ((dayNumber - offsetDay) % SHIO_DATA.length + SHIO_DATA.length) % SHIO_DATA.length;
+        }
         var shioObj = SHIO_DATA[shioIndex];
 
         document.getElementById('shioNameLabel').textContent = shioObj.name;
@@ -1299,72 +1583,58 @@
           this.src = './shio/' + shioObj.file;
         };
 
-        // 5. Angka Shio
-        var angkaShioVal;
+        // 5. Colok Bebas / 4 Sudut Kompas (Sesuai Screenshot: 1, 2, 4, 7)
         if (isSampleDate) {
-          angkaShioVal = '39';
-        } else {
-          setSeed(seed0, 101);
-          angkaShioVal = shioObj.angka[rndInt(0, shioObj.angka.length - 1)];
-        }
-        document.getElementById('angkaShioVal').textContent = angkaShioVal;
-
-        // 6. Arah Angka (Kompas 4 Angka: Top, Left, Right, Bottom)
-        if (isSampleDate) {
-          document.getElementById('arahTop').textContent = '3';
-          document.getElementById('arahLeft').textContent = '0';
-          document.getElementById('arahRight').textContent = '1';
-          document.getElementById('arahBottom').textContent = '2';
+          document.getElementById('colokTL').textContent = '1';
+          document.getElementById('colokTR').textContent = '2';
+          document.getElementById('colokBL').textContent = '4';
+          document.getElementById('colokBR').textContent = '7';
         } else {
           setSeed(seed0, 202);
-          var digitsArah = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 4);
-          document.getElementById('arahTop').textContent = digitsArah[0];
-          document.getElementById('arahLeft').textContent = digitsArah[1];
-          document.getElementById('arahRight').textContent = digitsArah[2];
-          document.getElementById('arahBottom').textContent = digitsArah[3];
+          var poolArah = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 4);
+          document.getElementById('colokTL').textContent = poolArah[0];
+          document.getElementById('colokTR').textContent = poolArah[1];
+          document.getElementById('colokBL').textContent = poolArah[2];
+          document.getElementById('colokBR').textContent = poolArah[3];
         }
 
-        // 7. BBFS (7 Digit)
+        // 6. BBFS (Sesuai Screenshot: 1 2 3 4 / 5 6 7 9)
+        var bbfsDigits;
         if (isSampleDate) {
-          document.getElementById('valBbfs').textContent = '5890123';
+          bbfsDigits = ['1', '2', '3', '4', '5', '6', '7', '9'];
         } else {
           setSeed(seed0, 303);
-          var bbfsPool = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 7);
-          document.getElementById('valBbfs').textContent = bbfsPool.join('');
+          bbfsDigits = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 8);
         }
+        var row1Html = bbfsDigits.slice(0, 4).map(function (n) { return '<span class="bbfs-digit">' + n + '</span>'; }).join('');
+        var row2Html = bbfsDigits.slice(4, 8).map(function (n) { return '<span class="bbfs-digit">' + n + '</span>'; }).join('');
+        document.getElementById('bbfsGrid').innerHTML = '<div class="bbfs-row">' + row1Html + '</div><div class="bbfs-row">' + row2Html + '</div>';
 
-        // 8. Angka Main (5 Angka dipisah titik •)
+        // 7. Angka Tarung & 2D (Sesuai Screenshot: 3-4-5-8-9)
         if (isSampleDate) {
-          document.getElementById('valMain').textContent = '3 • 1 • 2 • 0 • 8';
+          document.getElementById('valTarung').textContent = '3-4-5-8-9';
+          document.getElementById('val2dSub').textContent = '2D: 37 • 85 • 97';
         } else {
           setSeed(seed0, 404);
-          var mainPool = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 5);
-          document.getElementById('valMain').textContent = mainPool.join(' • ');
-        }
-
-        // 9. 2D Pilihan (3 Pasang Angka 2D)
-        if (isSampleDate) {
-          document.getElementById('val2d').textContent = '39 • 92 • 22';
-        } else {
+          var poolTarung = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 5);
+          document.getElementById('valTarung').textContent = poolTarung.join('-');
           setSeed(seed0, 505);
-          var p1 = angkaShioVal;
-          var p2 = String(rndInt(10, 99));
-          var p3 = String(rndInt(10, 99));
-          document.getElementById('val2d').textContent = p1 + ' • ' + p2 + ' • ' + p3;
+          var shio2d = shioObj.angka[rndInt(0, shioObj.angka.length - 1)];
+          document.getElementById('val2dSub').textContent = '2D: ' + shio2d + ' • ' + rndInt(10, 99) + ' • ' + rndInt(10, 99);
         }
 
-        // 10. Pantun Syair
-        var syairIdx;
+        // 8. Pantun Syair (Sesuai Screenshot: "Awan berarak di langit biru...")
+        var syairTxt;
         if (isSampleDate) {
-          syairIdx = 0;
+          syairTxt = shioObj.syair[0];
         } else {
           setSeed(seed0, 606);
-          syairIdx = rndInt(0, shioObj.syair.length - 1);
+          var sIdx = rndInt(0, shioObj.syair.length - 1);
+          syairTxt = shioObj.syair[sIdx] || shioObj.syair[0];
         }
-        var rawSyair = shioObj.syair[syairIdx] || shioObj.syair[0];
-        document.getElementById('syairPantun').innerHTML = rawSyair.replace(/\n/g, '<br>');
+        document.getElementById('syairPantun').innerHTML = syairTxt.replace(/\n/g, '<br>');
 
-        // 11. Pasaran & Background HD Thematic
+        // 9. Pasaran Logo & Variasi Background Otomatis
         var pasObj = PASARAN_MAP[marketKey] || PASARAN_MAP['HONGKONG LOTTO'];
         var pasImgEl = document.getElementById('pasaranLogo');
         pasImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/Logo%20togel/' + encodeURIComponent(pasObj.file);
@@ -1373,13 +1643,19 @@
         };
         document.getElementById('marketPill').textContent = pasObj.pill;
 
-        // Background HD sesuai Pasaran
-        var cardBgEl = document.getElementById('cardThemeBg');
-        if (cardBgEl && pasObj.bg) {
-          cardBgEl.style.backgroundImage = 'url("' + pasObj.bg + '")';
+        // Terapkan variasi background sesuai pasaran
+        if (pasObj.themeVar) {
+          switchThemeVariation(pasObj.themeVar);
+          var chips = document.querySelectorAll('.var-chip');
+          chips.forEach(function (c) {
+            if (c.textContent.toLowerCase().indexOf(pasObj.themeVar.toLowerCase()) !== -1) {
+              c.classList.add('active');
+            } else {
+              c.classList.remove('active');
+            }
+          });
         }
 
-        // Kirim tinggi iframe otomatis ke parent website
         sendIframeHeight();
       }
 
@@ -1397,10 +1673,9 @@
         }, 150);
       }
 
-      // Setup Awal
+      // Inisialisasi
       activeDate = getWIBDate();
 
-      // Baca URL Param jika ada (misal ?date=2026-09-22&market=HONGKONG+LOTTO)
       var params = new URLSearchParams(window.location.search);
       if (params.has('date')) {
         var pD = new Date(params.get('date'));
@@ -1413,7 +1688,7 @@
 
       renderCard(activeDate, activeMarket);
 
-      // Jadwalkan auto-refresh di jam 00:00:02 WIB berikutnya
+      // Auto refresh jam 00:00:02 tengah malam WIB
       (function scheduleMidnightReload() {
         var now = getWIBDate();
         var nextMid = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 2);
@@ -1427,11 +1702,10 @@
         }
       })();
 
-      // Respon saat window resize
       window.addEventListener('resize', sendIframeHeight);
       window.addEventListener('load', sendIframeHeight);
 
-      // Admin Toggle Helper
+      // Admin Toggle
       window.toggleAdmin = function () {
         var bar = document.getElementById('adminBar');
         bar.classList.toggle('open');
