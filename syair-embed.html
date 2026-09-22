@@ -789,38 +789,69 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       QUICK THEME & VARIATION SELECTOR BAR (BANYAK VARIASI)
+       LUXURY ROYAL GOLD PASARAN TABS (LATOTO EDITION)
        ═══════════════════════════════════════════════════════════════════ */
-    .variation-bar {
+    .pasaran-tabs-nav {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       flex-wrap: wrap;
-      margin-top: 6px;
+      margin: 12px auto 6px;
+      max-width: 540px;
       z-index: 5;
+      padding: 0 4px;
     }
 
-    .var-chip {
-      background: rgba(18, 13, 3, 0.85);
-      border: 1px solid rgba(255, 215, 0, 0.4);
-      color: #ffd700;
-      font-size: 10px;
+    .pas-tab {
+      background: linear-gradient(180deg, rgba(28, 21, 6, 0.94) 0%, rgba(12, 9, 3, 0.98) 100%);
+      border: 1.2px solid rgba(255, 215, 0, 0.45);
+      color: #dfba53;
+      font-family: 'Cinzel', serif, 'Poppins', sans-serif;
+      font-size: 11.5px;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 12px;
+      letter-spacing: 1.2px;
+      padding: 6px 14px;
+      border-radius: 20px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 215, 0, 0.15);
+      user-select: none;
+      outline: none;
     }
 
-    .var-chip:hover,
-    .var-chip.active {
-      background: linear-gradient(180deg, #caa025 0%, #6e4d0c 100%);
+    .pas-tab:hover {
       color: #ffffff;
       border-color: #ffd700;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .pas-tab.active {
+      background: linear-gradient(180deg, #fff2b2 0%, #ffd700 35%, #caa025 70%, #7c580d 100%);
+      color: #120e03;
+      border: 1.5px solid #fff5c0;
+      font-weight: 900;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+      box-shadow:
+        0 0 16px rgba(255, 215, 0, 0.75),
+        0 4px 12px rgba(0, 0, 0, 0.8),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .pas-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 18%;
+      right: 18%;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+      box-shadow: 0 0 6px #ffffff;
     }
 
     /* Admin Control Panel (Tersembunyi, klik logo untuk membuka) */
@@ -892,6 +923,17 @@
       .syair-date {
         font-size: 16px;
         letter-spacing: 2px;
+      }
+
+      .pasaran-tabs-nav {
+        gap: 5px;
+        margin: 8px auto 4px;
+      }
+
+      .pas-tab {
+        font-size: 10px;
+        padding: 4px 9px;
+        letter-spacing: 0.8px;
       }
 
       .syair-main-grid {
@@ -1102,6 +1144,15 @@
           </div>
         </div>
 
+        <!-- Luxury Royal Gold Pasaran Tabs (Navigasi 5 Pasaran Resmi) -->
+        <div class="pasaran-tabs-nav" id="pasaranTabsNav">
+          <button class="pas-tab active" data-market="HONGKONG LOTTO" onclick="selectPasaran('HONGKONG LOTTO')">HONGKONG</button>
+          <button class="pas-tab" data-market="TOTO MACAU" onclick="selectPasaran('TOTO MACAU')">MACAU</button>
+          <button class="pas-tab" data-market="SINGAPORE" onclick="selectPasaran('SINGAPORE')">SINGAPORE</button>
+          <button class="pas-tab" data-market="SYDNEY LOTTO" onclick="selectPasaran('SYDNEY LOTTO')">SYDNEY</button>
+          <button class="pas-tab" data-market="CAMBODIA" onclick="selectPasaran('CAMBODIA')">CAMBODIA</button>
+        </div>
+
         <!-- Pasaran Badge & Logo -->
         <div class="pasaran-wrap">
           <img class="pasaran-logo" id="pasaranLogo"
@@ -1279,15 +1330,7 @@
           </svg>
         </div>
 
-        <!-- HD Background Variation Quick Switcher -->
-        <div class="variation-bar">
-          <span style="font-size: 10px; color: #caa025; text-transform: uppercase; letter-spacing: 1px; margin-right: 4px;">🎨 Variasi Tema:</span>
-          <button class="var-chip active" onclick="switchThemeVariation('hongkong', this)">HongKong</button>
-          <button class="var-chip" onclick="switchThemeVariation('macau', this)">Macau</button>
-          <button class="var-chip" onclick="switchThemeVariation('singapore', this)">Singapore</button>
-          <button class="var-chip" onclick="switchThemeVariation('sydney', this)">Sydney</button>
-          <button class="var-chip" onclick="switchThemeVariation('cambodia', this)">Cambodia</button>
-        </div>
+
 
       </div>
 
@@ -1528,9 +1571,17 @@
 
       var activeDate = null;
       var activeMarket = 'HONGKONG LOTTO';
+      var PASARAN_KEYS = ['HONGKONG LOTTO', 'TOTO MACAU', 'SINGAPORE', 'SYDNEY LOTTO', 'CAMBODIA'];
+
+      function getMarketIndex(mKey) {
+        for (var i = 0; i < PASARAN_KEYS.length; i++) {
+          if (PASARAN_KEYS[i] === mKey) return i;
+        }
+        return 0;
+      }
 
       // Switch Variasi Background HD
-      window.switchThemeVariation = function (varKey, btnEl) {
+      window.switchThemeVariation = function (varKey) {
         var vObj = THEME_VARIATIONS[varKey] || THEME_VARIATIONS['hongkong'];
         var bgEl = document.getElementById('cardThemeBg');
         var atmEl = document.getElementById('cardThemeAtmosphere');
@@ -1541,38 +1592,46 @@
         if (atmEl) {
           atmEl.style.background = vObj.atmosphere;
         }
-
-        if (btnEl) {
-          var allChips = document.querySelectorAll('.var-chip');
-          allChips.forEach(function (c) { c.classList.remove('active'); });
-          btnEl.classList.add('active');
-        }
       };
 
-      // Render Card Berdasarkan Tanggal & Pasaran
+      // Navigasi Pasaran via Tab Emas
+      window.selectPasaran = function (marketKey) {
+        if (!PASARAN_MAP[marketKey]) return;
+        renderCard(activeDate, marketKey);
+      };
+
+      // Render Card Berdasarkan Tanggal & Pasaran (Unik per Pasaran & Tanggal)
       function renderCard(targetDate, marketKey) {
         var y = targetDate.getFullYear();
         var m = targetDate.getMonth();
         var d = targetDate.getDate();
 
+        // Pastikan marketKey valid
+        if (!PASARAN_MAP[marketKey]) marketKey = 'HONGKONG LOTTO';
+        activeMarket = marketKey;
+
         // 1. Tampilkan Tanggal Cartouche
         var dateStr = d + ' ' + BULAN_INDONESIA[m] + ' ' + y;
         document.getElementById('syairDate').textContent = dateStr;
 
-        // 2. Base Seed Harian
+        // 2. Market Index & Salt untuk Menjamin Angka & Shio Berbeda Tiap Pasaran
+        var marketIdx = getMarketIndex(marketKey);
+        var marketSalt = (marketIdx + 1) * 7919;
+
+        // 3. Base Seed Harian
         var seed0 = y * 10000 + (m + 1) * 100 + d;
 
-        // 3. Kalibrasi Tanggal 22 September 2026 (Sesuai Referensi Gambar Pengguna)
-        var isSampleDate = (y === 2026 && m === 8 && d === 22);
+        // 4. Kalibrasi Tanggal 22 September 2026 untuk Hongkong Lotto (Sesuai Referensi Pengguna)
+        var isSampleHK = (y === 2026 && m === 8 && d === 22 && marketKey === 'HONGKONG LOTTO');
 
-        // 4. Shio Index (Rotasi pasti 1 shio per hari tanpa berulang)
+        // 5. Shio Index (Rotasi pasti & Berbeda untuk Setiap Pasaran)
         var dayNumber = Math.floor(Date.UTC(y, m, d) / 86400000);
         var offsetDay = 20718;
         var shioIndex;
-        if (isSampleDate) {
-          shioIndex = 0; // SHIO KUDA pada 22 September 2026 sesuai screenshot
+        if (isSampleHK) {
+          shioIndex = 0; // SHIO KUDA pada 22 September 2026 HK
         } else {
-          shioIndex = ((dayNumber - offsetDay) % SHIO_DATA.length + SHIO_DATA.length) % SHIO_DATA.length;
+          shioIndex = ((dayNumber - offsetDay + (marketIdx * 5 + 1)) % SHIO_DATA.length + SHIO_DATA.length) % SHIO_DATA.length;
         }
         var shioObj = SHIO_DATA[shioIndex];
 
@@ -1583,14 +1642,14 @@
           this.src = './shio/' + shioObj.file;
         };
 
-        // 5. Colok Bebas / 4 Sudut Kompas (Sesuai Screenshot: 1, 2, 4, 7)
-        if (isSampleDate) {
+        // 6. Colok Bebas / 4 Sudut Kompas (Unik per Pasaran & Tanggal)
+        if (isSampleHK) {
           document.getElementById('colokTL').textContent = '1';
           document.getElementById('colokTR').textContent = '2';
           document.getElementById('colokBL').textContent = '4';
           document.getElementById('colokBR').textContent = '7';
         } else {
-          setSeed(seed0, 202);
+          setSeed(seed0 + marketSalt, 202);
           var poolArah = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 4);
           document.getElementById('colokTL').textContent = poolArah[0];
           document.getElementById('colokTR').textContent = poolArah[1];
@@ -1598,43 +1657,43 @@
           document.getElementById('colokBR').textContent = poolArah[3];
         }
 
-        // 6. BBFS (Sesuai Screenshot: 1 2 3 4 / 5 6 7 9)
+        // 7. BBFS (8 Angka Unik per Pasaran & Tanggal)
         var bbfsDigits;
-        if (isSampleDate) {
+        if (isSampleHK) {
           bbfsDigits = ['1', '2', '3', '4', '5', '6', '7', '9'];
         } else {
-          setSeed(seed0, 303);
+          setSeed(seed0 + marketSalt, 303);
           bbfsDigits = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 8);
         }
         var row1Html = bbfsDigits.slice(0, 4).map(function (n) { return '<span class="bbfs-digit">' + n + '</span>'; }).join('');
         var row2Html = bbfsDigits.slice(4, 8).map(function (n) { return '<span class="bbfs-digit">' + n + '</span>'; }).join('');
         document.getElementById('bbfsGrid').innerHTML = '<div class="bbfs-row">' + row1Html + '</div><div class="bbfs-row">' + row2Html + '</div>';
 
-        // 7. Angka Tarung & 2D (Sesuai Screenshot: 3-4-5-8-9)
-        if (isSampleDate) {
+        // 8. Angka Tarung & 2D (Unik per Pasaran & Tanggal)
+        if (isSampleHK) {
           document.getElementById('valTarung').textContent = '3-4-5-8-9';
           document.getElementById('val2dSub').textContent = '2D: 37 • 85 • 97';
         } else {
-          setSeed(seed0, 404);
+          setSeed(seed0 + marketSalt, 404);
           var poolTarung = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 5);
           document.getElementById('valTarung').textContent = poolTarung.join('-');
-          setSeed(seed0, 505);
+          setSeed(seed0 + marketSalt, 505);
           var shio2d = shioObj.angka[rndInt(0, shioObj.angka.length - 1)];
           document.getElementById('val2dSub').textContent = '2D: ' + shio2d + ' • ' + rndInt(10, 99) + ' • ' + rndInt(10, 99);
         }
 
-        // 8. Pantun Syair (Sesuai Screenshot: "Awan berarak di langit biru...")
+        // 9. Pantun Syair (Unik per Pasaran & Tanggal)
         var syairTxt;
-        if (isSampleDate) {
+        if (isSampleHK) {
           syairTxt = shioObj.syair[0];
         } else {
-          setSeed(seed0, 606);
+          setSeed(seed0 + marketSalt, 606);
           var sIdx = rndInt(0, shioObj.syair.length - 1);
           syairTxt = shioObj.syair[sIdx] || shioObj.syair[0];
         }
         document.getElementById('syairPantun').innerHTML = syairTxt.replace(/\n/g, '<br>');
 
-        // 9. Pasaran Logo & Variasi Background Otomatis
+        // 10. Pasaran Logo & Variasi Background Otomatis
         var pasObj = PASARAN_MAP[marketKey] || PASARAN_MAP['HONGKONG LOTTO'];
         var pasImgEl = document.getElementById('pasaranLogo');
         pasImgEl.src = 'https://raw.githubusercontent.com/shortcutpro/shortcutpro/main/Logo%20togel/' + encodeURIComponent(pasObj.file);
@@ -1646,14 +1705,23 @@
         // Terapkan variasi background sesuai pasaran
         if (pasObj.themeVar) {
           switchThemeVariation(pasObj.themeVar);
-          var chips = document.querySelectorAll('.var-chip');
-          chips.forEach(function (c) {
-            if (c.textContent.toLowerCase().indexOf(pasObj.themeVar.toLowerCase()) !== -1) {
-              c.classList.add('active');
-            } else {
-              c.classList.remove('active');
-            }
-          });
+        }
+
+        // Sinkronkan status aktif pada Tab Pasaran Emas
+        var allTabs = document.querySelectorAll('.pas-tab');
+        for (var t = 0; t < allTabs.length; t++) {
+          var tab = allTabs[t];
+          if (tab.getAttribute('data-market') === marketKey) {
+            tab.classList.add('active');
+          } else {
+            tab.classList.remove('active');
+          }
+        }
+
+        // Sinkronkan dropdown admin jika ada
+        var selEl = document.getElementById('marketSelect');
+        if (selEl && selEl.value !== marketKey) {
+          selEl.value = marketKey;
         }
 
         sendIframeHeight();
